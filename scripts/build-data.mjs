@@ -106,7 +106,7 @@ function toIso(d) {
 
 const KEEP_FIELDS = [
   'department', 'location_state', 'work_location', 'worker_category', 'position_status',
-  'is_contractor', 'role', 'annual_salary', 'hire_date', 'rehire_date', 'termination_date',
+  'is_contractor', 'annual_salary', 'hire_date', 'rehire_date', 'termination_date',
   'termination_reason', 'voluntary_flag', 'regrettable_flag',
 ];
 
@@ -129,8 +129,10 @@ const header = `// =============================================================
 // Do not hand-edit. Re-run the script to refresh.
 // ============================================================================
 // Contains ONLY: department, work location, worker category, position
-// status, contractor flag, job title, annual salary, hire/rehire/
-// termination dates, termination reason, and voluntary/regrettable flags.
+// status, contractor flag, annual salary, hire/rehire/termination dates,
+// termination reason, and voluntary/regrettable flags. Job title was
+// deliberately dropped too (see git history) — combined with department it
+// could narrow a small team down to one identifiable person.
 // No names, employee ids, or manager fields are present — those are
 // stripped by this script before writing (see IDENTITY_FIELDS above) even
 // though the census export and V&R workbook it read from carry them.

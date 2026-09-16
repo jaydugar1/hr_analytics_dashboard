@@ -111,7 +111,6 @@ export function buildAttritionCostRoster(censusRecords, assumptions = {}) {
 
     rows.push({
       dept: cleanDepartment(c.department) || '(Unassigned)',
-      role: c.role ?? null,
       hireDate: start,
       termDate: end,
       hireQuarter: hireQuarterLabel(start),

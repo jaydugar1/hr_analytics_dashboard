@@ -215,8 +215,12 @@ export const REGISTRIES = {
       ...nameFields,
       departmentField,
       { key: 'location_state', type: 'string', required: false, ...str,
-        exclude: /dependent|address|zip|marital/,
-        synonyms: ['worked in state', 'work state', 'lived in state', 'state', 'home state', 'location state', 'state province'] },
+        // NOTE: this copy relaxes the main repo's blanket `address` exclude
+        // to a few known decoy patterns, because this project's real export
+        // names its state column "PRIMARY ADDRESS - STATE / TERRITORY" — a
+        // legitimate state field that happens to contain the word "address".
+        exclude: /dependent|zip|marital|(mailing|home|billing|shipping) address/,
+        synonyms: ['primary address state territory', 'worked in state', 'work state', 'lived in state', 'state', 'home state', 'location state', 'state province'] },
       // ADP LOCATION column ("OSDAL - Onsite-Dallas", "R-TX - Remote-Texas",
       // "0001 - Legal Address") — drives the Employee Locations page
       { key: 'work_location', type: 'string', required: false, ...str,

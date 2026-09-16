@@ -37,9 +37,9 @@ const avg = (nums) => (nums.length ? nums.reduce((a, b) => a + b, 0) / nums.leng
  * (for terminated people) no termination date on/after that start, are
  * skipped rather than guessed at.
  *
- * NOTE: unlike the main repo, this row deliberately carries no `name` field —
- * the census baked into this static site's bundle has no names in it at all
- * (see src/data.js). Only `role` (job title) and `location_state` remain, for
+ * NOTE: unlike the main repo, this row deliberately carries no `name` or
+ * `role` (job title) field — the census baked into this static site's bundle
+ * has neither (see src/data.js). Only `location_state` remains, for
  * aggregate breakdowns.
  */
 export function buildTenureRoster(censusRecords, population = 'active', asOf = new Date()) {
@@ -56,7 +56,6 @@ export function buildTenureRoster(censusRecords, population = 'active', asOf = n
 
     rows.push({
       dept: cleanDepartment(c.department) || '(Unassigned)',
-      role: c.role ?? null,
       location_state: c.location_state ?? null,
       startDate: start,
       endDate: population === 'terminated' ? end : null,

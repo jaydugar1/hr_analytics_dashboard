@@ -68,7 +68,7 @@ export default function Turnover({ terms }) {
         <Kpi value={filtered.length} label="Terminated" />
         <Kpi value={filtered.filter((r) => r.voluntary_flag === true).length} label="Voluntary Count" />
         <Kpi value={filtered.filter((r) => r.voluntary_flag === false).length} label="Involuntary Count" />
-        <Kpi value={distinct(filtered, 'role')} label="Job Titles" />
+        <Kpi value={distinct(filtered, 'department')} label="Departments" />
         <DateRangeCard dataRange={bounds} value={dateSel} onChange={setDateSel} />
       </div>
 

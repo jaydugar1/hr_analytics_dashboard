@@ -15,10 +15,10 @@ import { rollup, distinct } from '../lib/metrics.js';
 const STATUS_LABEL = { active: 'A - Active', leave: 'L - Leave', terminated: 'T - Terminated' };
 const DIM_LABELS = {
   department: 'Department', location_state: 'Location', worker_category: 'Worker Category',
-  position_status: 'Position Status', role: 'Job Title',
+  position_status: 'Position Status',
 };
-const SUB_DIMS = ['role', 'department', 'worker_category', 'location_state', 'position_status'];
-const DEFAULT_SUB = { department: 'role', location_state: 'department', worker_category: 'department', position_status: 'department' };
+const SUB_DIMS = ['department', 'worker_category', 'location_state', 'position_status'];
+const DEFAULT_SUB = { department: 'worker_category', location_state: 'department', worker_category: 'department', position_status: 'department' };
 
 const dimValue = (r, dim) =>
   dim === 'position_status' ? (STATUS_LABEL[r.position_status] || r.position_status || '(Blank)') : (r[dim] ?? '(Blank)');
@@ -34,7 +34,7 @@ function countBy(people, dim) {
 }
 
 function DrillPanel({ drill, people, onClose }) {
-  const [subDim, setSubDim] = useState(DEFAULT_SUB[drill.dim] || 'role');
+  const [subDim, setSubDim] = useState(DEFAULT_SUB[drill.dim] || 'department');
   const breakdown = useMemo(() => countBy(people, subDim), [people, subDim]);
   const pill = (active) => ({
     fontSize: 12, fontWeight: 600, padding: '5px 11px', borderRadius: 9999,
