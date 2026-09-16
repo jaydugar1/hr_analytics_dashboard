@@ -93,7 +93,11 @@ export function buildAttritionCostRoster(censusRecords, assumptions = {}) {
 
   const rows = [];
   for (const c of censusRecords || []) {
-    if (c.position_status !== 'terminated') continue;
+    // matches either a census-sourced row (position_status === 'terminated')
+    // or a dedicated Termination Report row (no position_status column at
+    // all, but has a termination_date) — see loadData.js's TERMS.
+    const isTerminated = c.position_status === 'terminated' || (!c.position_status && !!c.termination_date);
+    if (!isTerminated) continue;
     const start = stintStart(c);
     if (!start) continue;
     const end = validDate(c.termination_date) ? c.termination_date : null;

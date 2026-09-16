@@ -45,7 +45,13 @@ const avg = (nums) => (nums.length ? nums.reduce((a, b) => a + b, 0) / nums.leng
 export function buildTenureRoster(censusRecords, population = 'active', asOf = new Date()) {
   const rows = [];
   for (const c of censusRecords || []) {
-    const isTerminated = c.position_status === 'terminated';
+    // matches either a census-sourced row (position_status === 'terminated')
+    // or a dedicated Termination Report row (no position_status column at
+    // all, but has a termination_date) — see loadData.js's TERMS for the
+    // same fallback. Requiring !c.position_status too means an active/leave
+    // roster row that happens to carry a past termination_date is never
+    // misclassified as terminated.
+    const isTerminated = c.position_status === 'terminated' || (!c.position_status && !!c.termination_date);
     if (population === 'active' && isTerminated) continue;
     if (population === 'terminated' && !isTerminated) continue;
 

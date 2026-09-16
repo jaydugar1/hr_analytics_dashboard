@@ -74,9 +74,15 @@ function DrillPanel({ drill, people, onClose }) {
   );
 }
 
+// A row from a dedicated Termination Report (see scripts/build-data.mjs)
+// has no position_status column at all, only a termination_date — treat
+// that the same as an explicit 'terminated' status. Matches the same
+// fallback used in loadData.js's TERMS and tenure.js's buildTenureRoster.
+const isTerminated = (r) => r.position_status === 'terminated' || (!r.position_status && !!r.termination_date);
+
 export default function Headcount({ census }) {
-  const records = useMemo(() => census.filter((r) => r.position_status !== 'terminated'), [census]);
-  const terms = useMemo(() => census.filter((r) => r.position_status === 'terminated'), [census]);
+  const records = useMemo(() => census.filter((r) => !isTerminated(r)), [census]);
+  const terms = useMemo(() => census.filter(isTerminated), [census]);
   const [drill, setDrill] = useState(null);
 
   const isContractor = (r) => r.is_contractor === true;

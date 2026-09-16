@@ -28,5 +28,13 @@ export const CENSUS = RECORDS.map((r) => ({
   termination_date: parseIsoDate(r.termination_date),
 }));
 
-/** Terminated rows only — the role `terms` plays in the main repo. */
-export const TERMS = CENSUS.filter((r) => r.position_status === 'terminated');
+/**
+ * Terminated rows only — the role `terms` plays in the main repo. Matches
+ * either `position_status === 'terminated'` (rows sourced from the census)
+ * or a row with no position_status at all but a termination_date (rows
+ * sourced from a dedicated Termination Report, which has no position_status
+ * column) — not just "has a termination_date", so an active/on-leave roster
+ * row that happens to carry a past termination_date (e.g. a rehire) is never
+ * misclassified as terminated.
+ */
+export const TERMS = CENSUS.filter((r) => r.position_status === 'terminated' || (!r.position_status && r.termination_date));
