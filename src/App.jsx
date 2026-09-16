@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PasswordGate from './PasswordGate.jsx';
-import { CENSUS, TERMS } from './lib/loadData.js';
+import { CENSUS, TERMS, VR_SEPARATIONS_LIST } from './lib/loadData.js';
 import Headcount from './views/Headcount.jsx';
 import Tenure from './views/Tenure.jsx';
 import Attrition from './views/Attrition.jsx';
@@ -33,7 +33,7 @@ export default function App() {
   const [tab, setTab] = useState('hc');
   const Active = TABS.find(([id]) => id === tab)[2];
 
-  const props = { census: CENSUS, terms: TERMS };
+  const props = { census: CENSUS, terms: TERMS, vrSeparations: VR_SEPARATIONS_LIST };
 
   return (
     <PasswordGate>

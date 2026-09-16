@@ -12,7 +12,7 @@ import { reasonBars, dateBounds, filterByDateRange } from '../lib/metrics.js';
  * record (see scripts/build-data.mjs), so this view just reads `terms`
  * straight — no join, no name-based matching, no upload-status chip.
  */
-export default function VolReg({ terms }) {
+export default function VolReg({ terms, vrSeparations = [] }) {
   const [dateSel, setDateSel] = useState(null);
   const bounds = useMemo(() => dateBounds(terms), [terms]);
   const records = useMemo(() => filterByDateRange(terms, dateSel), [terms, dateSel]);
@@ -24,6 +24,15 @@ export default function VolReg({ terms }) {
     const nonReg = records.filter((r) => r.regrettable_flag === false).length;
     return { vol, invol, reg, nonReg, bars: reasonBars(records) };
   }, [records]);
+
+  const vr = useMemo(() => {
+    const total = vrSeparations.length;
+    const reg = vrSeparations.filter((r) => r.regrettable_flag === true).length;
+    const nonReg = vrSeparations.filter((r) => r.regrettable_flag === false).length;
+    const vol = vrSeparations.filter((r) => r.voluntary_flag === true).length;
+    const invol = vrSeparations.filter((r) => r.voluntary_flag === false).length;
+    return { total, reg, nonReg, vol, invol };
+  }, [vrSeparations]);
 
   if (!terms.length) {
     return <WidgetUnavailable note="No termination data is loaded yet." />;
@@ -59,6 +68,24 @@ export default function VolReg({ terms }) {
           <BarList rows={m.bars} stacked />
         </div>
       </div>
+
+      {vr.total > 0 && (
+        <div className="card card--pad" style={{ borderTop: '3px solid #c9a227' }}>
+          <div className="card-title">Separately logged: the V&amp;R workbook</div>
+          <p style={{ fontSize: 12.5, color: '#655e52', margin: '4px 0 14px', maxWidth: 720 }}>
+            This workbook has no employee id or name, so its rows can't be matched to the {terms.length.toLocaleString()}{' '}
+            terminations above person-by-person — it's shown here as its own separate, usually smaller and
+            differently-dated count, never combined with the figures above.
+          </p>
+          <div className="kpi-grid-5">
+            <Kpi value={vr.total} label="Logged Separations" />
+            <Kpi value={vr.vol} label="Voluntary" />
+            <Kpi value={vr.invol} label="Involuntary" />
+            <Kpi value={vr.reg} label="Regrettable" />
+            <Kpi value={vr.nonReg} label="Non-Regrettable" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

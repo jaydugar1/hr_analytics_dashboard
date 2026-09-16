@@ -1,4 +1,4 @@
-import { RECORDS } from '../data.js';
+import { RECORDS, VR_SEPARATIONS } from '../data.js';
 
 /** 'YYYY-MM-DD' -> local Date, or null. Matches the main repo's date handling
  * (a plain local Date, no timezone shift) so metrics/tenure/attritionCost —
@@ -38,3 +38,15 @@ export const CENSUS = RECORDS.map((r) => ({
  * misclassified as terminated.
  */
 export const TERMS = CENSUS.filter((r) => r.position_status === 'terminated' || (!r.position_status && r.termination_date));
+
+/**
+ * A separate, standalone set of separations from a V&R workbook that had no
+ * employee id or name to join onto TERMS by (see scripts/build-data.mjs) —
+ * a different, usually smaller and differently-dated population. Never
+ * combine its counts with TERMS' as if they were the same population; the
+ * VolReg view shows it in its own clearly-labeled section instead.
+ */
+export const VR_SEPARATIONS_LIST = (VR_SEPARATIONS || []).map((r) => ({
+  ...r,
+  separation_date: parseIsoDate(r.separation_date),
+}));
