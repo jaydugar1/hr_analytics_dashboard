@@ -1,0 +1,64 @@
+import React, { useMemo, useState } from 'react';
+import { Kpi, Legend, BarList, WidgetUnavailable } from '../components/ui.jsx';
+import DateRangeCard from '../components/DateRangeCard.jsx';
+import { reasonBars, dateBounds, filterByDateRange } from '../lib/metrics.js';
+
+/**
+ * Voluntary & Regrettable — adapted from the main repo's src/views/VolReg.jsx.
+ *
+ * The main repo joins a separate "Voluntary vs Regrettable" workbook onto
+ * termination records by name. This static build's single dataset already
+ * carries voluntary_flag/regrettable_flag directly on every terminated
+ * record (see scripts/build-data.mjs), so this view just reads `terms`
+ * straight — no join, no name-based matching, no upload-status chip.
+ */
+export default function VolReg({ terms }) {
+  const [dateSel, setDateSel] = useState(null);
+  const bounds = useMemo(() => dateBounds(terms), [terms]);
+  const records = useMemo(() => filterByDateRange(terms, dateSel), [terms, dateSel]);
+
+  const m = useMemo(() => {
+    const vol = records.filter((r) => r.voluntary_flag === true).length;
+    const invol = records.filter((r) => r.voluntary_flag === false).length;
+    const reg = records.filter((r) => r.regrettable_flag === true).length;
+    const nonReg = records.filter((r) => r.regrettable_flag === false).length;
+    return { vol, invol, reg, nonReg, bars: reasonBars(records) };
+  }, [records]);
+
+  if (!terms.length) {
+    return <WidgetUnavailable note="No termination data is loaded yet." />;
+  }
+
+  return (
+    <div className="view-stack">
+      <div style={{ minWidth: 280 }}>
+        <DateRangeCard label="SEPARATION DATE" dataRange={bounds} value={dateSel} onChange={setDateSel} />
+      </div>
+
+      <div className="kpi-grid-5">
+        <Kpi value={records.length} label="Separations" />
+        <Kpi value={m.vol} label="Voluntary Count" />
+        <Kpi value={m.invol} label="Involuntary Count" />
+        <Kpi value={m.reg} label="Regrettable Count" />
+        <Kpi value={m.nonReg} label="Non-Regrettable Count" />
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <div className="card card--pad">
+          <div className="card-title">Separations by Type — Voluntary vs Involuntary</div>
+          <div style={{ margin: '10px 0 16px' }}>
+            <Legend items={[['Voluntary', '#005042'], ['Involuntary', '#FF6947'], ['Neither / mixed', '#b0a898']]} />
+          </div>
+          <BarList rows={m.bars} />
+        </div>
+        <div className="card card--pad">
+          <div className="card-title">Separations by Type — Regrettable vs Non-Regrettable</div>
+          <div style={{ margin: '10px 0 16px' }}>
+            <Legend items={[['Regrettable', '#FF6947'], ['Non-regrettable', '#005042']]} />
+          </div>
+          <BarList rows={m.bars} stacked />
+        </div>
+      </div>
+    </div>
+  );
+}
