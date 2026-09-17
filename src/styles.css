@@ -64,9 +64,17 @@ body { font-family: var(--font-body); color: var(--ink); }
   background: var(--green-dark); flex-wrap: wrap;
 }
 .brand-block {
-  background: var(--green); border-radius: 8px; padding: 10px 18px;
-  font-family: var(--font-headline); font-weight: 800; font-size: 16px;
-  letter-spacing: 0.06em; color: var(--cream); white-space: nowrap;
+  background: var(--green); border-radius: 10px; padding: 8px 16px 8px 8px;
+  display: flex; align-items: center; gap: 10px; white-space: nowrap;
+}
+.brand-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 8px;
+  background: var(--cream); flex-shrink: 0;
+}
+.brand-text {
+  font-family: var(--font-headline); font-weight: 800; font-size: 13px;
+  letter-spacing: 0.06em; color: var(--cream); line-height: 1.25;
 }
 .tab-row { display: flex; gap: 4px; flex-wrap: wrap; }
 .tab-btn {
