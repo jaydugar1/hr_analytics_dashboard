@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",
+    "d3-scale": "^4.0.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-simple-maps": "^5.0.5",
+    "us-atlas": "^3.0.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",

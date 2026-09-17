@@ -1,6 +1,11 @@
 import React, { useMemo, useState } from 'react';
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+import { scaleLinear } from 'd3-scale';
 import { Kpi, WidgetUnavailable } from '../components/ui.jsx';
 import { classifyEmployee, modeBreakdown } from '../lib/talent.js';
+import { FIPS_TO_STATE, STATE_NAMES } from '../lib/stateFips.js';
+
+const GEO_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 
 /**
  * Employee Locations — adapted from the main repo's src/views/TalentLocations.jsx
@@ -68,10 +73,122 @@ function CountBars({ rows, emptyNote, selected, onSelect }) {
   );
 }
 
+/**
+ * State choropleth + click-to-filter-department, adapted from the sibling
+ * heat-map-dashboard project's src/App.jsx map (same react-simple-maps +
+ * us-atlas + d3-scale approach). Unlike that standalone project, this reads
+ * state directly from this app's own baked `location_state` field rather
+ * than a separate zip-code dataset.
+ */
+function HeadcountMap({ people }) {
+  const [dept, setDept] = useState('All');
+  const [hovered, setHovered] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
+
+  const departments = useMemo(() => [...new Set(people.map((p) => p.department).filter(Boolean))].sort(), [people]);
+  const mapPeople = useMemo(() => (dept === 'All' ? people : people.filter((p) => p.department === dept)), [people, dept]);
+
+  const byState = useMemo(() => {
+    const m = new Map();
+    for (const p of mapPeople) {
+      if (!p.location_state) continue;
+      m.set(p.location_state, (m.get(p.location_state) || 0) + 1);
+    }
+    return m;
+  }, [mapPeople]);
+
+  const deptSource = useMemo(
+    () => (selectedState ? mapPeople.filter((p) => p.location_state === selectedState) : mapPeople),
+    [mapPeople, selectedState]
+  );
+  const byDept = useMemo(() => {
+    const m = new Map();
+    for (const p of deptSource) {
+      if (!p.department) continue;
+      m.set(p.department, (m.get(p.department) || 0) + 1);
+    }
+    return [...m.entries()].sort((a, b) => b[1] - a[1]);
+  }, [deptSource]);
+
+  const maxCount = Math.max(1, ...byState.values());
+  const colorScale = useMemo(() => scaleLinear().domain([0, maxCount]).range(['#e8f3f0', '#005042']), [maxCount]);
+  const withState = mapPeople.filter((p) => p.location_state).length;
+
+  return (
+    <div className="card card--pad">
+      <div className="card-title">Headcount by state</div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 14, margin: '4px 0 14px', flexWrap: 'wrap' }}>
+        <span style={{ fontSize: 12.5, color: '#655e52' }}>
+          {withState.toLocaleString()} of {mapPeople.length.toLocaleString()} in the selected groups have a state on file.
+        </span>
+        <label style={{ marginLeft: 'auto', fontSize: 12, fontWeight: 600, color: '#655e52', display: 'flex', alignItems: 'center', gap: 6 }}>
+          Department
+          <select value={dept} onChange={(e) => { setDept(e.target.value); setSelectedState(null); }} style={{ padding: '5px 8px', borderRadius: 6, border: '1px solid #d4cfc5', fontSize: 12.5 }}>
+            <option value="All">All departments</option>
+            {departments.map((d) => <option key={d} value={d}>{d}</option>)}
+          </select>
+        </label>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 16, alignItems: 'start' }}>
+        <div>
+          <ComposableMap projection="geoAlbersUsa" width={900} height={500} style={{ width: '100%', height: 'auto' }}>
+            <Geographies geography={GEO_URL}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const abbr = FIPS_TO_STATE[geo.id];
+                  const count = byState.get(abbr) || 0;
+                  const isHovered = hovered && hovered.abbr === abbr;
+                  const isSelected = selectedState === abbr;
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={() => setHovered({ abbr, count, name: geo.properties.name })}
+                      onMouseLeave={() => setHovered(null)}
+                      onClick={() => setSelectedState((prev) => (prev === abbr ? null : abbr))}
+                      fill={isHovered ? '#FF6947' : count ? colorScale(count) : '#f0f0f0'}
+                      stroke={isSelected ? '#FF6947' : '#fff'}
+                      strokeWidth={isSelected ? 2 : 0.5}
+                      style={{ outline: 'none', cursor: 'pointer' }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ComposableMap>
+          <div style={{ textAlign: 'center', fontSize: 13, fontWeight: 600, color: '#005042', marginTop: 6 }}>
+            {hovered
+              ? `${STATE_NAMES[hovered.abbr] || hovered.name}: ${hovered.count.toLocaleString()} people`
+              : 'Hover a state for its count, click to filter the department list'}
+          </div>
+        </div>
+
+        <div>
+          <div style={{ fontFamily: 'var(--font-headline)', fontWeight: 600, fontSize: 13.5, color: '#311E04', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 8 }}>
+            By department{selectedState && <> — {STATE_NAMES[selectedState] || selectedState}</>}
+            {selectedState && (
+              <button
+                onClick={() => setSelectedState(null)}
+                style={{ fontSize: 11, fontWeight: 600, color: '#005042', background: '#e8f5f2', border: 'none', borderRadius: 4, padding: '3px 8px', cursor: 'pointer' }}
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          <CountBars rows={byDept.map(([name, count]) => ({ name, count }))} emptyNote="No one in the selected groups has a department on file here." />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TalentLocations({ census }) {
   const active = useMemo(() => census.filter((r) => r.position_status === 'active'), [census]);
   const people = useMemo(() => active.map((r) => ({
     ...classifyEmployee(r),
+    department: r.department,
+    location_state: r.location_state,
     group: r.is_contractor === true ? 'Contractors' : 'Employees',
   })), [active]);
 
@@ -136,6 +253,8 @@ export default function TalentLocations({ census }) {
               <div>In person <strong style={{ color: '#005042' }}>{fmtPct(viewBreak.pct.onsite)}</strong> · Remote <strong style={{ color: '#005042' }}>{fmtPct(viewBreak.pct.remote)}</strong></div>
             </div>
           </div>
+
+          <HeadcountMap people={inView} />
 
           <div className="card card--pad">
             <div className="card-title">Work mode — in person vs remote</div>
