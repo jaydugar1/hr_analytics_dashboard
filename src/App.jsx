@@ -10,6 +10,7 @@ import Turnover from './views/Turnover.jsx';
 import VolReg from './views/VolReg.jsx';
 import CostOfAttrition from './views/CostOfAttrition.jsx';
 import TalentLocations from './views/TalentLocations.jsx';
+import SpanOfControl from './views/SpanOfControl.jsx';
 import PeopleAssistant from './views/PeopleAssistant.jsx';
 
 // Grouped nav: a top-level entry either opens its own page directly
@@ -35,6 +36,7 @@ const NAV = [
     ],
   },
   { id: 'loc', label: 'Employee Locations', view: TalentLocations },
+  { id: 'soc', label: 'Span of Control', view: SpanOfControl },
 ];
 
 function findLeaf(id) {

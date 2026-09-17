@@ -16,6 +16,13 @@
 // note in this script) — a different, usually smaller and differently-dated
 // population. Never combine its counts with RECORDS' termination counts as
 // if they were the same population.
+//
+// SPAN_OF_CONTROL is computed from a census export with a "Reports To Name"
+// column, grouped and counted in scripts/build-data.mjs and never carried
+// past that script — only the resulting averages/counts are here, no
+// manager names or per-manager rows. byDept's avgDirectReports means "among
+// this department's active people, the average team size of the manager
+// they report to" (see the script for why it's computed this way).
 // ============================================================================
 export const RECORDS = [
   {
@@ -34893,3 +34900,154 @@ export const VR_SEPARATIONS = [
     "regrettable_flag": false
   }
 ];
+export const SPAN_OF_CONTROL = {
+  "overallAvg": 6.4,
+  "managerCount": 132,
+  "reportCount": 850,
+  "byDept": [
+    {
+      "department": "100009 - Member Services",
+      "avgDirectReports": 8.8,
+      "managerCount": 35,
+      "reportCount": 307
+    },
+    {
+      "department": "100022 - Engineering",
+      "avgDirectReports": 4.8,
+      "managerCount": 23,
+      "reportCount": 110
+    },
+    {
+      "department": "100010 - Client Success",
+      "avgDirectReports": 5.3,
+      "managerCount": 12,
+      "reportCount": 63
+    },
+    {
+      "department": "100007 - Claims and Network Experience",
+      "avgDirectReports": 7.4,
+      "managerCount": 8,
+      "reportCount": 59
+    },
+    {
+      "department": "100018 - Product",
+      "avgDirectReports": 2.6,
+      "managerCount": 14,
+      "reportCount": 37
+    },
+    {
+      "department": "100011 - Core Technology",
+      "avgDirectReports": 3,
+      "managerCount": 11,
+      "reportCount": 33
+    },
+    {
+      "department": "100001 - Business Development",
+      "avgDirectReports": 3.9,
+      "managerCount": 8,
+      "reportCount": 31
+    },
+    {
+      "department": "100012 - Strategy & Analytics",
+      "avgDirectReports": 4.5,
+      "managerCount": 6,
+      "reportCount": 27
+    },
+    {
+      "department": "100005 - Marketing",
+      "avgDirectReports": 2.6,
+      "managerCount": 9,
+      "reportCount": 23
+    },
+    {
+      "department": "100003 - Network Development",
+      "avgDirectReports": 3.3,
+      "managerCount": 7,
+      "reportCount": 23
+    },
+    {
+      "department": "100020 - Cancer Care Direct Delivery",
+      "avgDirectReports": 7.7,
+      "managerCount": 3,
+      "reportCount": 23
+    },
+    {
+      "department": "100027 - Partnerships",
+      "avgDirectReports": 3.3,
+      "managerCount": 6,
+      "reportCount": 20
+    },
+    {
+      "department": "100013 - Human Resources",
+      "avgDirectReports": 4.3,
+      "managerCount": 4,
+      "reportCount": 17
+    },
+    {
+      "department": "100002 - Accounting",
+      "avgDirectReports": 3.4,
+      "managerCount": 5,
+      "reportCount": 17
+    },
+    {
+      "department": "100014 - Commercial Enablement & Operations",
+      "avgDirectReports": 2.2,
+      "managerCount": 5,
+      "reportCount": 11
+    },
+    {
+      "department": "100004 - Operational Excellence",
+      "avgDirectReports": 2,
+      "managerCount": 5,
+      "reportCount": 10
+    },
+    {
+      "department": "100025 - Commercial Strategy & Operations",
+      "avgDirectReports": 2.3,
+      "managerCount": 4,
+      "reportCount": 9
+    },
+    {
+      "department": "100017 - Information Security",
+      "avgDirectReports": 2,
+      "managerCount": 4,
+      "reportCount": 8
+    },
+    {
+      "department": "100008 - FP&A and Analytics",
+      "avgDirectReports": 3,
+      "managerCount": 2,
+      "reportCount": 6
+    },
+    {
+      "department": "100021 - Clinical",
+      "avgDirectReports": 2,
+      "managerCount": 3,
+      "reportCount": 6
+    },
+    {
+      "department": "100006 - Legal",
+      "avgDirectReports": 1.7,
+      "managerCount": 3,
+      "reportCount": 5
+    },
+    {
+      "department": "100024 - Cancer Care Direct Support",
+      "avgDirectReports": 1.5,
+      "managerCount": 2,
+      "reportCount": 3
+    },
+    {
+      "department": "100016 - Executive",
+      "avgDirectReports": 1,
+      "managerCount": 1,
+      "reportCount": 1
+    },
+    {
+      "department": "100023 - Data Management",
+      "avgDirectReports": 1,
+      "managerCount": 1,
+      "reportCount": 1
+    }
+  ]
+};

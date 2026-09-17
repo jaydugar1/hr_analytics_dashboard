@@ -5,8 +5,17 @@
 //
 // Usage:
 //   npm install xlsx --no-save
-//   node scripts/build-data.mjs "<census.xlsx>" ["<termination report.xlsx>"] ["<V&R workbook.xlsx>"]
+//   node scripts/build-data.mjs "<census.xlsx>" ["<termination report.xlsx>"] ["<V&R workbook.xlsx>"] ["<reports-to census.xlsx>"]
 //   npm uninstall xlsx
+//
+// The optional 4th argument is a census export that includes a "Reports To
+// Name" / "Manager" column (this project's real exports don't always have
+// one). It's used ONLY to compute Span of Control (average direct reports,
+// overall and by department) at build time — the manager names themselves
+// are grouped on and counted, then discarded; they never appear in the
+// output. If this export lacks fields (e.g. no location/state) that the
+// main census has, that's fine — it's never used for anything but this one
+// aggregate, never merged into RECORDS.
 //
 // When a dedicated Termination Report is supplied, it REPLACES the
 // terminations derived from the census (it's richer — the census export
@@ -47,9 +56,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const censusPath = process.argv[2];
 const termPath = process.argv[3];
 const vrPath = process.argv[4];
+const reportsPath = process.argv[5];
 
 if (!censusPath) {
-  console.error('Usage: node scripts/build-data.mjs "<census.xlsx>" ["<termination report.xlsx>"] ["<V&R workbook.xlsx>"]');
+  console.error('Usage: node scripts/build-data.mjs "<census.xlsx>" ["<termination report.xlsx>"] ["<V&R workbook.xlsx>"] ["<reports-to census.xlsx>"]');
   process.exit(1);
 }
 
@@ -129,6 +139,62 @@ if (vrPath) {
 
 const allRecords = [...roster, ...terminations];
 
+// ------------------------------------------------------- span of control
+
+// PRIVACY: `manager` (mapped from a "Reports To Name" column) is grouped on
+// and counted right here, in this Node script, and never leaves this
+// variable scope — SPAN_OF_CONTROL below carries only the resulting
+// averages/counts, never a manager's name or any per-manager breakdown.
+let spanOfControl = { overallAvg: null, managerCount: 0, reportCount: 0, byDept: [] };
+
+if (reportsPath) {
+  const rep = readSheet(reportsPath, 'Employee Census Report');
+  const repResult = ingest('employee_compass', rep.headers, rep.rows);
+  console.log(`Reports-to census: read ${rep.rows.length} rows from sheet "${rep.sheetName}", mapped ${Object.keys(repResult.mapping.mapped).length}/${repResult.registry.fields.length} fields.`);
+  const activeWithManager = repResult.records.filter((r) => r.position_status === 'active' && r.manager);
+  if (!activeWithManager.length) {
+    console.warn('  No active rows with a manager/"reports to" value found — Span of Control will be empty.');
+  } else {
+    const byManagerOverall = new Map();
+    for (const r of activeWithManager) byManagerOverall.set(r.manager, (byManagerOverall.get(r.manager) || 0) + 1);
+    const managerCount = byManagerOverall.size;
+    const reportCount = activeWithManager.length;
+
+    // By department: among active reports IN this department, group by their
+    // manager and average the resulting group sizes. This is "how many
+    // people in this department report to the same manager", on the
+    // assumption (usually true) that a manager's reports mostly share their
+    // department — not "the manager's own total headcount across all
+    // departments", since we have no way to look up a manager's own
+    // department from a name alone.
+    const byDeptManagers = new Map(); // department -> Map(manager -> count)
+    for (const r of activeWithManager) {
+      if (!r.department) continue;
+      if (!byDeptManagers.has(r.department)) byDeptManagers.set(r.department, new Map());
+      const m = byDeptManagers.get(r.department);
+      m.set(r.manager, (m.get(r.manager) || 0) + 1);
+    }
+    const byDept = [...byDeptManagers.entries()].map(([department, managers]) => {
+      const counts = [...managers.values()];
+      const reports = counts.reduce((a, b) => a + b, 0);
+      return {
+        department,
+        avgDirectReports: Math.round((reports / counts.length) * 10) / 10,
+        managerCount: counts.length,
+        reportCount: reports,
+      };
+    }).sort((a, b) => b.reportCount - a.reportCount);
+
+    spanOfControl = {
+      overallAvg: Math.round((reportCount / managerCount) * 10) / 10,
+      managerCount,
+      reportCount,
+      byDept,
+    };
+    console.log(`  Span of control: ${reportCount} active reports across ${managerCount} distinct managers (overall avg ${spanOfControl.overallAvg}), ${byDept.length} departments.`);
+  }
+}
+
 // ------------------------------------------------------------- anonymize
 
 // PRIVACY: strip every individually-identifying field before anything is
@@ -196,9 +262,17 @@ const header = `// =============================================================
 // note in this script) — a different, usually smaller and differently-dated
 // population. Never combine its counts with RECORDS' termination counts as
 // if they were the same population.
+//
+// SPAN_OF_CONTROL is computed from a census export with a "Reports To Name"
+// column, grouped and counted in scripts/build-data.mjs and never carried
+// past that script — only the resulting averages/counts are here, no
+// manager names or per-manager rows. byDept's avgDirectReports means "among
+// this department's active people, the average team size of the manager
+// they report to" (see the script for why it's computed this way).
 // ============================================================================
 export const RECORDS = ${JSON.stringify(out, null, 2)};
 export const VR_SEPARATIONS = ${JSON.stringify(vrOut, null, 2)};
+export const SPAN_OF_CONTROL = ${JSON.stringify(spanOfControl, null, 2)};
 `;
 fs.writeFileSync(outPath, header);
 

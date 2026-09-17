@@ -1,4 +1,4 @@
-import { RECORDS, VR_SEPARATIONS } from '../data.js';
+import { RECORDS, VR_SEPARATIONS, SPAN_OF_CONTROL as SPAN_OF_CONTROL_DATA } from '../data.js';
 
 /** 'YYYY-MM-DD' -> local Date, or null. Matches the main repo's date handling
  * (a plain local Date, no timezone shift) so metrics/tenure/attritionCost —
@@ -50,3 +50,11 @@ export const VR_SEPARATIONS_LIST = (VR_SEPARATIONS || []).map((r) => ({
   ...r,
   separation_date: parseIsoDate(r.separation_date),
 }));
+
+/**
+ * Average direct reports overall and by department, computed at build time
+ * from a census export with a "Reports To Name" column (see
+ * scripts/build-data.mjs) — manager identities were grouped on and counted
+ * there, never here; this object carries only the resulting numbers.
+ */
+export const SPAN_OF_CONTROL = SPAN_OF_CONTROL_DATA || { overallAvg: null, managerCount: 0, reportCount: 0, byDept: [] };
