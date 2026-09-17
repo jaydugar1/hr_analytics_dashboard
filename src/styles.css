@@ -64,17 +64,13 @@ body { font-family: var(--font-body); color: var(--ink); }
   background: var(--green-dark); flex-wrap: wrap;
 }
 .brand-block {
-  background: var(--green); border-radius: 10px; padding: 8px 16px 8px 8px;
+  background: var(--cream); border-radius: 10px; padding: 10px 18px;
   display: flex; align-items: center; gap: 10px; white-space: nowrap;
 }
-.brand-icon {
-  display: flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 8px;
-  background: var(--cream); flex-shrink: 0;
-}
+.brand-icon-mark { flex-shrink: 0; }
 .brand-text {
-  font-family: var(--font-headline); font-weight: 800; font-size: 13px;
-  letter-spacing: 0.06em; color: var(--cream); line-height: 1.25;
+  font-family: var(--font-headline); font-weight: 800; font-size: 17px;
+  letter-spacing: 0.08em; color: var(--green-dark); line-height: 1;
 }
 .tab-row { display: flex; gap: 4px; flex-wrap: wrap; }
 .nav-item { position: relative; }

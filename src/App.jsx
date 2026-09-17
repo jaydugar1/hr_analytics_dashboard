@@ -82,15 +82,13 @@ export default function App() {
       <div>
         <header className="app-header">
           <div className="brand-block">
-            <span className="brand-icon">
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                <path
-                  fill="var(--green-dark)"
-                  d="M12.5 2.2c-1.1 2.7-3.6 4.3-3.6 7.8a4.6 4.6 0 109.2 0c0-1.1-.4-2-1-2.7.1 1.7-.8 2.9-2.2 2.9a2.1 2.1 0 01-2.1-2.1c0-1.9 1.4-2.9-.3-5.9z"
-                />
-              </svg>
-            </span>
-            <span className="brand-text">PEOPLE<br />ANALYTICS</span>
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" className="brand-icon-mark">
+              <path
+                fill="var(--green-dark)"
+                d="M12.5 2.2c-1.1 2.7-3.6 4.3-3.6 7.8a4.6 4.6 0 109.2 0c0-1.1-.4-2-1-2.7.1 1.7-.8 2.9-2.2 2.9a2.1 2.1 0 01-2.1-2.1c0-1.9 1.4-2.9-.3-5.9z"
+              />
+            </svg>
+            <span className="brand-text">LANTERN</span>
           </div>
           <nav className="tab-row">
             {NAV.map((item) => {
