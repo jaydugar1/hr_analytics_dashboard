@@ -76,6 +76,11 @@ export default function App() {
 
   const props = { census: filteredCensus, terms: filteredTerms, vrSeparations: VR_SEPARATIONS_LIST };
   const filtersActive = dept !== 'All' || exempt !== 'All';
+  // Span of Control is a fixed aggregate computed at build time (see
+  // SpanOfControl.jsx) -- there's no per-record data left at runtime for
+  // these filters to narrow, so say so instead of implying they do
+  // something on that page.
+  const filtersApply = tab !== 'soc';
 
   return (
     <PasswordGate>
@@ -121,28 +126,33 @@ export default function App() {
           <button className="btn-signout" onClick={clearPassword}>Sign out</button>
         </header>
 
-        <div className="filter-bar">
-          <span className="filter-bar-label">Filter every page by:</span>
+        <div className={'filter-bar' + (filtersApply ? '' : ' filter-bar--inactive')}>
+          <span className="filter-bar-label">
+            {filtersApply ? 'Filter this page by:' : "These don't apply on Span of Control:"}
+          </span>
           <label className="filter-bar-field">
             Department
-            <select value={dept} onChange={(e) => setDept(e.target.value)}>
+            <select value={dept} onChange={(e) => setDept(e.target.value)} disabled={!filtersApply}>
               <option value="All">All departments</option>
               {departments.map((d) => <option key={d} value={d}>{cleanDepartment(d)}</option>)}
             </select>
           </label>
           <label className="filter-bar-field">
             Exempt status
-            <select value={exempt} onChange={(e) => setExempt(e.target.value)}>
+            <select value={exempt} onChange={(e) => setExempt(e.target.value)} disabled={!filtersApply}>
               <option value="All">All</option>
               <option value="Exempt">Exempt</option>
               <option value="Non-Exempt">Non-Exempt</option>
               <option value="Other">Other (contractor/intern)</option>
             </select>
           </label>
-          {filtersActive && (
+          {filtersActive && filtersApply && (
             <button className="filter-bar-clear" onClick={() => { setDept('All'); setExempt('All'); }}>
               Clear filters
             </button>
+          )}
+          {filtersActive && !filtersApply && (
+            <span className="filter-bar-note">(still set — will apply again once you leave this page)</span>
           )}
         </div>
 

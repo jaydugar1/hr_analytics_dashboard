@@ -117,6 +117,11 @@ body { font-family: var(--font-body); color: var(--ink); }
   border: 1px solid #b9d8d0; border-radius: 9999px; padding: 6px 14px; cursor: pointer;
 }
 .filter-bar-clear:hover { background: var(--green); color: var(--cream); }
+.filter-bar--inactive { background: #f2f1ec; border-bottom-color: #e3e1d8; }
+.filter-bar--inactive .filter-bar-label { color: #9a9285; }
+.filter-bar--inactive .filter-bar-field { color: #9a9285; }
+.filter-bar--inactive .filter-bar-field select { background: #f7f6f2; color: #9a9285; border-color: #ddd9cd; cursor: not-allowed; }
+.filter-bar-note { font-size: 12px; color: #9a9285; font-style: italic; }
 
 .app-main { max-width: 1400px; margin: 0 auto; padding: 24px 28px 60px; }
 .view-stack { display: flex; flex-direction: column; gap: 20px; }
