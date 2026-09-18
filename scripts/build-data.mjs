@@ -51,6 +51,59 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ingest, splitCensusRecords } from './mapping/mapper.js';
 import { joinVrFlags } from '../src/lib/metrics.js';
+import { cleanDepartment } from '../src/lib/department.js';
+
+// Department consolidation mapping (Head of HR's Span of Control runbook,
+// 9/15/2026 census cycle). Applied to the CLEANED (numeric-code-stripped)
+// HOME DEPARTMENT name. Anything not listed here passes through unchanged.
+// "Member Services" is included alongside the two Cancer Care departments
+// the runbook's table lists, because the runbook's prose says "Member
+// Services -> renamed to Conversion" and Member Services is overwhelmingly
+// the largest department in this census -- almost certainly the department
+// the runbook's "Conversion" figures are describing. Confirm with HR if the
+// resulting Conversion number looks off.
+const DEPT_CONSOLIDATION = {
+  'Member Services': 'Conversion',
+  'Cancer Care Direct Delivery': 'Conversion',
+  'Cancer Care Direct Support': 'Conversion',
+  'Engineering': 'Technology',
+  'Core Technology': 'Technology',
+  'Data Management': 'Technology',
+  'Accounting': 'CFO Organization',
+  'FP&A and Analytics': 'CFO Organization',
+  'Legal': 'CFO Organization',
+  'Information Security': 'CFO Organization',
+  'Network Development': 'Provider',
+  'Claims and Network Experience': 'Provider',
+  'Operational Excellence': 'Provider',
+  'Commercial Enablement & Operations': 'Marketing',
+  'Product': 'Marketing',
+};
+
+// KNOWN GAP (see memory/span-of-control-methodology.md and the README):
+// the runbook also calls for (a) a new "Activation" department carved out of
+// David Huck's entire recursive downstream org plus a few named leaders'
+// downstreams, and (b) several NAMED INDIVIDUALS from Product going to
+// specific departments other than Marketing (Claire Cunningham -> Conversion,
+// Timothy Frierdich -> Provider, etc.). Neither is computable from this
+// census export: it has a "Reports To Name" column (who manages a row) but
+// NO column for the row's OWN name, so we can count direct reports of a
+// named manager but can't identify "which row is Claire Cunningham" to
+// relabel her, nor recurse past one level to find a manager's reports'
+// reports. Product is therefore left folded into Marketing (the base-case
+// rule) and there is no Activation department here -- both are expected,
+// documented mismatches versus HR's reference figures, not bugs.
+function consolidateDepartment(raw) {
+  const cleaned = cleanDepartment(raw);
+  if (!cleaned) return cleaned;
+  return DEPT_CONSOLIDATION[cleaned] || cleaned;
+}
+
+// Technology contractor adjustment (runbook §8): the census is FTE-only,
+// and Technology carries 66 contractors the census doesn't capture, assumed
+// to distribute evenly across Technology's managers.
+const TECHNOLOGY_CONTRACTORS = 66;
+const SPAN_TARGET = 7;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const censusPath = process.argv[2];
@@ -145,53 +198,234 @@ const allRecords = [...roster, ...terminations];
 // and counted right here, in this Node script, and never leaves this
 // variable scope — SPAN_OF_CONTROL below carries only the resulting
 // averages/counts, never a manager's name or any per-manager breakdown.
-let spanOfControl = { overallAvg: null, managerCount: 0, reportCount: 0, byDept: [] };
+let spanOfControl = { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [] };
+
+// PRIVACY: everything in this block that touches a name (LEGAL LAST/FIRST
+// NAME, PREFERRED NAME, REPORTS TO NAME) lives ONLY in these local
+// variables inside this Node script. Not one name is ever written to
+// SPAN_OF_CONTROL, logged in a way that ends up in a file, or otherwise
+// leaves this function — only aggregate counts/averages do.
+function headerKey(headers, wanted) {
+  const norm = wanted.trim().toLowerCase();
+  return headers.find((h) => h.trim().toLowerCase() === norm) || null;
+}
+
+// Head of HR's manager-matching algorithm (runbook §4): REPORTS TO NAME is
+// "Last,First..." and often carries a middle name the employee's own row
+// doesn't, so a naive exact-string match drops hundreds of reporting lines.
+// Match on last name + first TOKEN of the "First..." part instead, checking
+// both legal and preferred first names as candidates.
+function buildNameIndex(people) {
+  const byLast = new Map(); // lowercased last name -> [{ i, variants: Set<string> }]
+  for (const p of people) {
+    if (!p.lastName) continue;
+    const key = p.lastName.toLowerCase();
+    const variants = new Set();
+    if (p.firstName) variants.add(p.firstName.toLowerCase());
+    if (p.preferredFirst) variants.add(p.preferredFirst.toLowerCase());
+    if (!byLast.has(key)) byLast.set(key, []);
+    byLast.get(key).push({ i: p.i, variants });
+  }
+  return byLast;
+}
+
+function matchManagerIndex(byLast, reportsTo) {
+  if (!reportsTo) return null;
+  const commaIdx = reportsTo.indexOf(',');
+  if (commaIdx === -1) return null;
+  const last = reportsTo.slice(0, commaIdx).trim().toLowerCase();
+  const firstToken = reportsTo.slice(commaIdx + 1).trim().split(/\s+/)[0]?.toLowerCase();
+  const candidates = byLast.get(last);
+  if (!candidates || !candidates.length) return null;
+  if (firstToken) {
+    const hit = candidates.find((c) => c.variants.has(firstToken));
+    if (hit) return hit.i;
+  }
+  return candidates[0].i; // multiple/no first-name hit -> take the first, per runbook
+}
+
+function findPerson(byLast, lastName, ...firstNameOptions) {
+  const candidates = byLast.get(lastName.toLowerCase());
+  if (!candidates) return null;
+  for (const fn of firstNameOptions) {
+    const hit = candidates.find((c) => c.variants.has(fn.toLowerCase()));
+    if (hit) return hit.i;
+  }
+  return null;
+}
 
 if (reportsPath) {
   const rep = readSheet(reportsPath, 'Employee Census Report');
   const repResult = ingest('employee_compass', rep.headers, rep.rows);
   console.log(`Reports-to census: read ${rep.rows.length} rows from sheet "${rep.sheetName}", mapped ${Object.keys(repResult.mapping.mapped).length}/${repResult.registry.fields.length} fields.`);
-  const activeWithManager = repResult.records.filter((r) => r.position_status === 'active' && r.manager);
+
+  // Raw column pulls the registry won't map (its NAME_DECOYS guard
+  // deliberately excludes "preferred"/"chosen" columns from full_name, to
+  // avoid the main app's uploader misreading them as an employee's legal
+  // name) — read directly by header text instead, index-aligned with
+  // repResult.records since ingest()/applyMapping() is a 1:1 rows.map().
+  const lastKey = headerKey(rep.headers, 'LEGAL LAST NAME');
+  const firstKey = headerKey(rep.headers, 'LEGAL FIRST NAME');
+  const preferredKey = headerKey(rep.headers, 'PREFERRED OR CHOSEN FIRST NAME');
+
+  const people = repResult.records.map((r, i) => ({
+    i,
+    lastName: lastKey ? String(rep.rows[i][lastKey] || '').trim() : '',
+    firstName: firstKey ? String(rep.rows[i][firstKey] || '').trim() : '',
+    preferredFirst: preferredKey ? String(rep.rows[i][preferredKey] || '').trim() : '',
+    reportsTo: r.manager || '',
+    department: r.department,
+    active: r.position_status === 'active',
+  }));
+
+  if (!lastKey || !firstKey) {
+    console.warn('  This export has no employee-name column — falling back to exact REPORTS TO NAME matching (see the prior version of this script) with no Activation/Product carve-out.');
+  }
+
+  const byLast = buildNameIndex(people);
+  for (const p of people) p.managerIndex = matchManagerIndex(byLast, p.reportsTo);
+
+  const withReportsTo = people.filter((p) => p.reportsTo).length;
+  const unresolved = people.filter((p) => p.reportsTo && p.managerIndex == null).length;
+  console.log(`  Manager matching: ${withReportsTo - unresolved} of ${withReportsTo} "reports to" values resolved to a row (${unresolved} unresolved — expected for people managed by someone above the roster, e.g. the CEO).`);
+
+  // children map, for the recursive Activation downstream walk (runbook §7)
+  const childrenOf = new Map(); // managerIndex -> [reportIndex, ...]
+  for (const p of people) {
+    if (p.managerIndex == null) continue;
+    if (!childrenOf.has(p.managerIndex)) childrenOf.set(p.managerIndex, []);
+    childrenOf.get(p.managerIndex).push(p.i);
+  }
+  function downstreamOf(rootIndex) {
+    const seen = new Set();
+    const queue = [rootIndex];
+    while (queue.length) {
+      const cur = queue.shift();
+      for (const k of childrenOf.get(cur) || []) {
+        if (!seen.has(k)) { seen.add(k); queue.push(k); }
+      }
+    }
+    return seen;
+  }
+
+  // ---- base consolidated department, before the Activation/Product carve-out
+  for (const p of people) p.finalDept = consolidateDepartment(p.department);
+
+  // ---- Activation carve-out (runbook §7): David Huck's full recursive
+  // downstream org, plus a few other named leaders and THEIR downstreams.
+  // Only attempted when we actually have name data to resolve these people.
+  let activationResolved = false;
+  if (lastKey && firstKey) {
+    const activationLeaders = [
+      ['Huck', ['David', 'Dave']],
+      ['Stroik', ['Jennifer']],
+      ['Prickel', ['Kasey']],
+      ['Zysset', ['Maureen']],
+      ['Henley', ['Irene']],
+    ];
+    const activationSet = new Set();
+    let leadersFound = 0;
+    for (const [last, firsts] of activationLeaders) {
+      const idx = findPerson(byLast, last, ...firsts);
+      if (idx == null) continue;
+      leadersFound++;
+      activationSet.add(idx);
+      for (const d of downstreamOf(idx)) activationSet.add(d);
+    }
+    if (leadersFound > 0) {
+      for (const idx of activationSet) people[idx].finalDept = 'Activation';
+      activationResolved = true;
+      console.log(`  Activation carve-out: resolved ${leadersFound}/${activationLeaders.length} named leaders, ${activationSet.size} people moved to Activation.`);
+    } else {
+      console.log('  Activation carve-out: none of the named leaders resolved in this export — skipping (Product/Activation stay at their base mapping).');
+    }
+
+    // ---- Product Leadership Transition named-individual overrides (§7).
+    // Applied AFTER Activation so these explicit destinations always win
+    // (e.g. Claire Cunningham must land in Conversion, never Activation,
+    // even though her name is unrelated to any Activation leader here).
+    const amyBrown = findPerson(byLast, 'Brown', 'Amy');
+    const jenniferStroik = findPerson(byLast, 'Stroik', 'Jennifer');
+    if (amyBrown != null && jenniferStroik != null) {
+      // her role was eliminated; her direct reports move to Jennifer Stroik
+      for (const p of people) if (p.managerIndex === amyBrown) p.managerIndex = jenniferStroik;
+      people[amyBrown].excluded = true; // role eliminated -> not counted as a manager or report
+    }
+    const claire = findPerson(byLast, 'Cunningham', 'Claire');
+    if (claire != null) {
+      people[claire].finalDept = 'Conversion';
+      for (const d of childrenOf.get(claire) || []) people[d].finalDept = 'Conversion';
+    }
+    const overrides = [
+      ['Frierdich', ['Timothy'], 'Provider'],
+      ['Barber', ['Elizabeth', 'Lizzy'], 'Client Success'],
+      ['Cotten', ['Courtny'], 'Client Success'],
+      ['Miller', ['Kelly'], 'Executive'],
+      ['Wang', ['Guan'], 'Executive'],
+      ['Bard', ['Spencer'], 'Activation'],
+      ['Copper', ['Hope'], 'Activation'],
+    ];
+    let overridesResolved = 0;
+    for (const [last, firsts, dept] of overrides) {
+      const idx = findPerson(byLast, last, ...firsts);
+      if (idx == null) continue;
+      people[idx].finalDept = dept;
+      overridesResolved++;
+    }
+    console.log(`  Product transition overrides: resolved ${overridesResolved}/${overrides.length} named individuals${claire != null ? ' + Claire Cunningham' : ''}${amyBrown != null ? ' + Amy Brown role elimination' : ''}.`);
+  }
+
+  const activeWithManager = people.filter((p) => p.active && !p.excluded && p.managerIndex != null);
   if (!activeWithManager.length) {
-    console.warn('  No active rows with a manager/"reports to" value found — Span of Control will be empty.');
+    console.warn('  No active rows with a resolved manager found — Span of Control will be empty.');
   } else {
     const byManagerOverall = new Map();
-    for (const r of activeWithManager) byManagerOverall.set(r.manager, (byManagerOverall.get(r.manager) || 0) + 1);
+    for (const p of activeWithManager) byManagerOverall.set(p.managerIndex, (byManagerOverall.get(p.managerIndex) || 0) + 1);
     const managerCount = byManagerOverall.size;
     const reportCount = activeWithManager.length;
 
-    // By department: among active reports IN this department, group by their
-    // manager and average the resulting group sizes. This is "how many
-    // people in this department report to the same manager", on the
-    // assumption (usually true) that a manager's reports mostly share their
-    // department — not "the manager's own total headcount across all
-    // departments", since we have no way to look up a manager's own
-    // department from a name alone.
-    const byDeptManagers = new Map(); // department -> Map(manager -> count)
-    for (const r of activeWithManager) {
-      if (!r.department) continue;
-      if (!byDeptManagers.has(r.department)) byDeptManagers.set(r.department, new Map());
-      const m = byDeptManagers.get(r.department);
-      m.set(r.manager, (m.get(r.manager) || 0) + 1);
+    // By department: among active reports IN this (consolidated, carved-out)
+    // department, group by their manager and average the resulting group
+    // sizes — "how many people in this department report to the same
+    // manager." See the comment on consolidateDepartment/DEPT_CONSOLIDATION
+    // above for the mapping and its documented gaps.
+    const byDeptManagers = new Map(); // department -> Map(managerIndex -> count)
+    for (const p of activeWithManager) {
+      const dept = p.finalDept;
+      if (!dept) continue;
+      if (!byDeptManagers.has(dept)) byDeptManagers.set(dept, new Map());
+      const m = byDeptManagers.get(dept);
+      m.set(p.managerIndex, (m.get(p.managerIndex) || 0) + 1);
     }
     const byDept = [...byDeptManagers.entries()].map(([department, managers]) => {
       const counts = [...managers.values()];
       const reports = counts.reduce((a, b) => a + b, 0);
-      return {
+      const row = {
         department,
         avgDirectReports: Math.round((reports / counts.length) * 10) / 10,
         managerCount: counts.length,
         reportCount: reports,
       };
+      // Technology contractor adjustment (runbook §8): the census is
+      // FTE-only, so add the known contractor headcount on top, assumed to
+      // distribute evenly across Technology's managers.
+      if (department === 'Technology') {
+        row.avgDirectReportsAdjusted = Math.round(((reports + TECHNOLOGY_CONTRACTORS) / counts.length) * 10) / 10;
+        row.contractorsAdded = TECHNOLOGY_CONTRACTORS;
+      }
+      return row;
     }).sort((a, b) => b.reportCount - a.reportCount);
 
     spanOfControl = {
       overallAvg: Math.round((reportCount / managerCount) * 10) / 10,
+      overallAvgWithContractors: Math.round(((reportCount + TECHNOLOGY_CONTRACTORS) / managerCount) * 10) / 10,
       managerCount,
       reportCount,
+      target: SPAN_TARGET,
+      activationResolved,
       byDept,
     };
-    console.log(`  Span of control: ${reportCount} active reports across ${managerCount} distinct managers (overall avg ${spanOfControl.overallAvg}), ${byDept.length} departments.`);
+    console.log(`  Span of control: ${reportCount} active reports across ${managerCount} distinct managers (overall avg ${spanOfControl.overallAvg}, ${spanOfControl.overallAvgWithContractors} incl. contractors), ${byDept.length} consolidated departments.`);
   }
 }
 

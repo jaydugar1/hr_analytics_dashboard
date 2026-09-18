@@ -34901,153 +34901,98 @@ export const VR_SEPARATIONS = [
   }
 ];
 export const SPAN_OF_CONTROL = {
-  "overallAvg": 6.4,
-  "managerCount": 132,
-  "reportCount": 850,
+  "overallAvg": 6.1,
+  "overallAvgWithContractors": 6.6,
+  "managerCount": 139,
+  "reportCount": 853,
+  "target": 7,
+  "activationResolved": true,
   "byDept": [
     {
-      "department": "100009 - Member Services",
-      "avgDirectReports": 8.8,
-      "managerCount": 35,
-      "reportCount": 307
+      "department": "Conversion",
+      "avgDirectReports": 9,
+      "managerCount": 30,
+      "reportCount": 269
     },
     {
-      "department": "100022 - Engineering",
-      "avgDirectReports": 4.8,
-      "managerCount": 23,
-      "reportCount": 110
+      "department": "Technology",
+      "avgDirectReports": 5.4,
+      "managerCount": 28,
+      "reportCount": 150,
+      "avgDirectReportsAdjusted": 7.7,
+      "contractorsAdded": 66
     },
     {
-      "department": "100010 - Client Success",
-      "avgDirectReports": 5.3,
+      "department": "Provider",
+      "avgDirectReports": 4.3,
+      "managerCount": 22,
+      "reportCount": 94
+    },
+    {
+      "department": "Activation",
+      "avgDirectReports": 6.6,
+      "managerCount": 13,
+      "reportCount": 86
+    },
+    {
+      "department": "Client Success",
+      "avgDirectReports": 5.1,
       "managerCount": 12,
-      "reportCount": 63
+      "reportCount": 61
     },
     {
-      "department": "100007 - Claims and Network Experience",
-      "avgDirectReports": 7.4,
-      "managerCount": 8,
-      "reportCount": 59
-    },
-    {
-      "department": "100018 - Product",
+      "department": "Marketing",
       "avgDirectReports": 2.6,
-      "managerCount": 14,
-      "reportCount": 37
+      "managerCount": 17,
+      "reportCount": 44
     },
     {
-      "department": "100011 - Core Technology",
-      "avgDirectReports": 3,
-      "managerCount": 11,
-      "reportCount": 33
+      "department": "CFO Organization",
+      "avgDirectReports": 2.9,
+      "managerCount": 12,
+      "reportCount": 35
     },
     {
-      "department": "100001 - Business Development",
+      "department": "Business Development",
       "avgDirectReports": 3.9,
       "managerCount": 8,
       "reportCount": 31
     },
     {
-      "department": "100012 - Strategy & Analytics",
+      "department": "Strategy & Analytics",
+      "avgDirectReports": 4.2,
+      "managerCount": 6,
+      "reportCount": 25
+    },
+    {
+      "department": "Partnerships",
+      "avgDirectReports": 2.8,
+      "managerCount": 8,
+      "reportCount": 22
+    },
+    {
+      "department": "Human Resources",
       "avgDirectReports": 4.5,
-      "managerCount": 6,
-      "reportCount": 27
-    },
-    {
-      "department": "100005 - Marketing",
-      "avgDirectReports": 2.6,
-      "managerCount": 9,
-      "reportCount": 23
-    },
-    {
-      "department": "100003 - Network Development",
-      "avgDirectReports": 3.3,
-      "managerCount": 7,
-      "reportCount": 23
-    },
-    {
-      "department": "100020 - Cancer Care Direct Delivery",
-      "avgDirectReports": 7.7,
-      "managerCount": 3,
-      "reportCount": 23
-    },
-    {
-      "department": "100027 - Partnerships",
-      "avgDirectReports": 3.3,
-      "managerCount": 6,
-      "reportCount": 20
-    },
-    {
-      "department": "100013 - Human Resources",
-      "avgDirectReports": 4.3,
       "managerCount": 4,
-      "reportCount": 17
+      "reportCount": 18
     },
     {
-      "department": "100002 - Accounting",
-      "avgDirectReports": 3.4,
-      "managerCount": 5,
-      "reportCount": 17
-    },
-    {
-      "department": "100014 - Commercial Enablement & Operations",
-      "avgDirectReports": 2.2,
-      "managerCount": 5,
-      "reportCount": 11
-    },
-    {
-      "department": "100004 - Operational Excellence",
-      "avgDirectReports": 2,
-      "managerCount": 5,
-      "reportCount": 10
-    },
-    {
-      "department": "100025 - Commercial Strategy & Operations",
+      "department": "Commercial Strategy & Operations",
       "avgDirectReports": 2.3,
       "managerCount": 4,
       "reportCount": 9
     },
     {
-      "department": "100017 - Information Security",
+      "department": "Clinical",
       "avgDirectReports": 2,
-      "managerCount": 4,
-      "reportCount": 8
+      "managerCount": 3,
+      "reportCount": 6
     },
     {
-      "department": "100008 - FP&A and Analytics",
+      "department": "Executive",
       "avgDirectReports": 3,
-      "managerCount": 2,
-      "reportCount": 6
-    },
-    {
-      "department": "100021 - Clinical",
-      "avgDirectReports": 2,
-      "managerCount": 3,
-      "reportCount": 6
-    },
-    {
-      "department": "100006 - Legal",
-      "avgDirectReports": 1.7,
-      "managerCount": 3,
-      "reportCount": 5
-    },
-    {
-      "department": "100024 - Cancer Care Direct Support",
-      "avgDirectReports": 1.5,
-      "managerCount": 2,
+      "managerCount": 1,
       "reportCount": 3
-    },
-    {
-      "department": "100016 - Executive",
-      "avgDirectReports": 1,
-      "managerCount": 1,
-      "reportCount": 1
-    },
-    {
-      "department": "100023 - Data Management",
-      "avgDirectReports": 1,
-      "managerCount": 1,
-      "reportCount": 1
     }
   ]
 };

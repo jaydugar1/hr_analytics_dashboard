@@ -178,6 +178,37 @@ body { font-family: var(--font-body); color: var(--ink); }
   font-size: 13.5px; color: #5c3a10; text-align: center;
 }
 
+/* ---------- Span of Control chart ---------- */
+.soc-chart-title { font-family: var(--font-headline); font-weight: 700; font-size: 19px; color: var(--green); }
+.soc-chart-subtitle { font-size: 12.5px; color: #8a8070; margin: 4px 0 22px; }
+.soc-chart-area { position: relative; max-width: 900px; }
+.soc-chart-grid {
+  display: grid; grid-template-columns: 180px 1fr; column-gap: 14px; row-gap: 12px;
+}
+.soc-row-label { font-size: 12.5px; color: #4a4338; display: flex; align-items: center; }
+.soc-row-bar-cell { position: relative; height: 24px; }
+.soc-bar { position: absolute; top: 0; left: 0; height: 100%; border-radius: 0 3px 3px 0; }
+.soc-bar--hatched {
+  position: absolute; top: 0; height: 100%; border: 1px dashed #005042; box-sizing: border-box;
+  background-image: repeating-linear-gradient(45deg, rgba(0, 80, 66, 0.35) 0, rgba(0, 80, 66, 0.35) 3px, transparent 3px, transparent 8px);
+  background-color: rgba(0, 80, 66, 0.08);
+}
+.soc-bar-value { position: absolute; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 700; white-space: nowrap; }
+/* Aligned to the bar column only (180px label column + 14px grid gap),
+   positioned absolutely against .soc-chart-area rather than as a grid item
+   — see the comment beside its JSX for why. */
+.soc-overlay { position: absolute; top: 0; bottom: 0; left: 194px; right: 0; pointer-events: none; }
+.soc-gridline { position: absolute; top: 0; bottom: 0; width: 1px; background: #ece9e2; }
+.soc-refline { position: absolute; top: -18px; bottom: 0; width: 0; border-left-width: 1.5px; border-left-style: dashed; }
+.soc-refline span { position: absolute; top: -2px; left: 4px; font-size: 10.5px; font-weight: 700; white-space: nowrap; }
+.soc-refline--avg { border-left-color: var(--espresso, #311E04); }
+.soc-refline--avg span { color: #311E04; }
+.soc-refline--target { border-left-style: dotted; border-left-color: #FF6947; border-left-width: 2px; }
+.soc-refline--target span { color: #FF6947; top: 10px; }
+.soc-axis { display: flex; gap: 14px; margin-top: 8px; }
+.soc-axis-track { position: relative; flex: 1; height: 16px; }
+.soc-axis-track span { position: absolute; transform: translateX(-50%); font-size: 11px; color: #8a8070; }
+
 /* ---------- pill toggles (used inline via style props too) ---------- */
 .review-select {
   font-family: var(--font-body); font-size: 13.5px; padding: 8px 10px;
