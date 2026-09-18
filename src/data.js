@@ -34994,5 +34994,25 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 1,
       "reportCount": 3
     }
+  ],
+  "byExemptStatus": [
+    {
+      "exemptStatus": "Exempt",
+      "avgDirectReports": 4,
+      "managerCount": 110,
+      "reportCount": 441
+    },
+    {
+      "exemptStatus": "Non-Exempt",
+      "avgDirectReports": 10.8,
+      "managerCount": 28,
+      "reportCount": 302
+    },
+    {
+      "exemptStatus": "Other",
+      "avgDirectReports": 3.7,
+      "managerCount": 30,
+      "reportCount": 110
+    }
   ]
 };

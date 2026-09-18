@@ -52,6 +52,7 @@ import { fileURLToPath } from 'node:url';
 import { ingest, splitCensusRecords } from './mapping/mapper.js';
 import { joinVrFlags } from '../src/lib/metrics.js';
 import { cleanDepartment } from '../src/lib/department.js';
+import { exemptStatus } from '../src/lib/exempt.js';
 
 // Department consolidation mapping (Head of HR's Span of Control runbook,
 // 9/15/2026 census cycle). Applied to the CLEANED (numeric-code-stripped)
@@ -198,7 +199,7 @@ const allRecords = [...roster, ...terminations];
 // and counted right here, in this Node script, and never leaves this
 // variable scope — SPAN_OF_CONTROL below carries only the resulting
 // averages/counts, never a manager's name or any per-manager breakdown.
-let spanOfControl = { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [] };
+let spanOfControl = { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [] };
 
 // PRIVACY: everything in this block that touches a name (LEGAL LAST/FIRST
 // NAME, PREFERRED NAME, REPORTS TO NAME) lives ONLY in these local
@@ -276,6 +277,7 @@ if (reportsPath) {
     reportsTo: r.manager || '',
     department: r.department,
     active: r.position_status === 'active',
+    exempt: exemptStatus(r.worker_category),
   }));
 
   if (!lastKey || !firstKey) {
@@ -384,37 +386,49 @@ if (reportsPath) {
     const managerCount = byManagerOverall.size;
     const reportCount = activeWithManager.length;
 
-    // By department: among active reports IN this (consolidated, carved-out)
-    // department, group by their manager and average the resulting group
-    // sizes — "how many people in this department report to the same
-    // manager." See the comment on consolidateDepartment/DEPT_CONSOLIDATION
-    // above for the mapping and its documented gaps.
-    const byDeptManagers = new Map(); // department -> Map(managerIndex -> count)
-    for (const p of activeWithManager) {
-      const dept = p.finalDept;
-      if (!dept) continue;
-      if (!byDeptManagers.has(dept)) byDeptManagers.set(dept, new Map());
-      const m = byDeptManagers.get(dept);
-      m.set(p.managerIndex, (m.get(p.managerIndex) || 0) + 1);
-    }
-    const byDept = [...byDeptManagers.entries()].map(([department, managers]) => {
-      const counts = [...managers.values()];
-      const reports = counts.reduce((a, b) => a + b, 0);
-      const row = {
-        department,
-        avgDirectReports: Math.round((reports / counts.length) * 10) / 10,
-        managerCount: counts.length,
-        reportCount: reports,
-      };
-      // Technology contractor adjustment (runbook §8): the census is
-      // FTE-only, so add the known contractor headcount on top, assumed to
-      // distribute evenly across Technology's managers.
-      if (department === 'Technology') {
-        row.avgDirectReportsAdjusted = Math.round(((reports + TECHNOLOGY_CONTRACTORS) / counts.length) * 10) / 10;
-        row.contractorsAdded = TECHNOLOGY_CONTRACTORS;
+    // Groups active reports by some key (their consolidated department, or
+    // their own exempt/non-exempt status), then for each group value:
+    // group THOSE reports by manager and average the resulting team sizes —
+    // "how many people in this group report to the same manager." Applying
+    // the same grouped-then-manager-averaged logic to exempt status as to
+    // department (rather than, say, classifying a manager by their OWN
+    // exempt status) keeps the two breakdowns directly comparable and
+    // matches how every other page's Exempt/Non-Exempt filter already
+    // slices the population — by each PERSON's own status.
+    function groupAndAverage(records, keyFn) {
+      const byGroup = new Map(); // key -> Map(managerIndex -> count)
+      for (const p of records) {
+        const key = keyFn(p);
+        if (!key) continue;
+        if (!byGroup.has(key)) byGroup.set(key, new Map());
+        const m = byGroup.get(key);
+        m.set(p.managerIndex, (m.get(p.managerIndex) || 0) + 1);
       }
-      return row;
-    }).sort((a, b) => b.reportCount - a.reportCount);
+      return [...byGroup.entries()].map(([key, managers]) => {
+        const counts = [...managers.values()];
+        const reports = counts.reduce((a, b) => a + b, 0);
+        const row = {
+          avgDirectReports: Math.round((reports / counts.length) * 10) / 10,
+          managerCount: counts.length,
+          reportCount: reports,
+        };
+        // Technology contractor adjustment (runbook §8): the census is
+        // FTE-only, so add the known contractor headcount on top, assumed
+        // to distribute evenly across Technology's managers. Exempt-status
+        // groups don't get this adjustment — the 66 contractors' own
+        // exempt/non-exempt classification isn't known here.
+        if (key === 'Technology') {
+          row.avgDirectReportsAdjusted = Math.round(((reports + TECHNOLOGY_CONTRACTORS) / counts.length) * 10) / 10;
+          row.contractorsAdded = TECHNOLOGY_CONTRACTORS;
+        }
+        return { key, ...row };
+      }).sort((a, b) => b.reportCount - a.reportCount);
+    }
+
+    const byDept = groupAndAverage(activeWithManager, (p) => p.finalDept)
+      .map(({ key, ...rest }) => ({ department: key, ...rest }));
+    const byExemptStatus = groupAndAverage(activeWithManager, (p) => p.exempt)
+      .map(({ key, ...rest }) => ({ exemptStatus: key, ...rest }));
 
     spanOfControl = {
       overallAvg: Math.round((reportCount / managerCount) * 10) / 10,
@@ -424,8 +438,9 @@ if (reportsPath) {
       target: SPAN_TARGET,
       activationResolved,
       byDept,
+      byExemptStatus,
     };
-    console.log(`  Span of control: ${reportCount} active reports across ${managerCount} distinct managers (overall avg ${spanOfControl.overallAvg}, ${spanOfControl.overallAvgWithContractors} incl. contractors), ${byDept.length} consolidated departments.`);
+    console.log(`  Span of control: ${reportCount} active reports across ${managerCount} distinct managers (overall avg ${spanOfControl.overallAvg}, ${spanOfControl.overallAvgWithContractors} incl. contractors), ${byDept.length} consolidated departments, ${byExemptStatus.length} exempt-status groups.`);
   }
 }
 

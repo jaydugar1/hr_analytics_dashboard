@@ -15,7 +15,7 @@ const ESPRESSO = '#311E04';
  * bar, and (for Technology) a hatched extension showing the
  * contractor-adjusted figure.
  */
-function SpanChart({ rows, target, companyAvg, title, subtitle }) {
+function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) => cleanDepartment(r.department), keyFor = (r) => r.department }) {
   const domainMax = useMemo(() => {
     const values = rows.flatMap((r) => [r.avgDirectReports, r.avgDirectReportsAdjusted ?? 0]);
     const max = Math.max(target, companyAvg, ...values);
@@ -43,8 +43,8 @@ function SpanChart({ rows, target, companyAvg, title, subtitle }) {
             // the whole bar read as "meets target" off a hypothetical figure.
             const meetsTarget = value >= target;
             return (
-              <React.Fragment key={r.department}>
-                <div className="soc-row-label">{cleanDepartment(r.department)}</div>
+              <React.Fragment key={keyFor(r)}>
+                <div className="soc-row-label">{labelFor(r)}</div>
                 <div className="soc-row-bar-cell">
                   <div className="soc-bar" style={{ width: pct(value), background: meetsTarget ? TEAL : CORAL }} />
                   {adjusted != null && adjusted > value && (
@@ -135,6 +135,18 @@ export default function SpanOfControl() {
         title="Span of Control by Department — Current"
         subtitle={`${s.managerCount.toLocaleString()} managers · company average ${companyAvg.toFixed(2)} (incl. contractors) · target ${target}`}
       />
+
+      {s.byExemptStatus?.length > 0 && (
+        <SpanChart
+          rows={s.byExemptStatus}
+          target={target}
+          companyAvg={s.overallAvg}
+          title="Span of Control by Exempt Status — Current"
+          subtitle="Grouped by each report's own exempt/non-exempt classification, not the manager's — a manager with a mixed team counts toward both groups"
+          labelFor={(r) => r.exemptStatus}
+          keyFor={(r) => r.exemptStatus}
+        />
+      )}
 
       <div className="callout">
         <div className="callout-title">How this is computed</div>
