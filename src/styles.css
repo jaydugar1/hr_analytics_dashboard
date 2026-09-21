@@ -117,6 +117,13 @@ body { font-family: var(--font-body); color: var(--ink); }
   border: 1px solid #b9d8d0; border-radius: 9999px; padding: 6px 14px; cursor: pointer;
 }
 .filter-bar-clear:hover { background: var(--green); color: var(--cream); }
+.filter-bar-toggle {
+  font-size: 12.5px; font-weight: 600; color: #2f4d46; background: #fff;
+  border: 1px solid #b9d8d0; border-radius: 9999px; padding: 6px 14px; cursor: pointer;
+}
+.filter-bar-toggle:hover { border-color: var(--green); }
+.filter-bar-toggle--on { background: var(--green); color: var(--cream); border-color: var(--green); }
+.filter-bar-toggle:disabled { cursor: not-allowed; opacity: 0.5; }
 .filter-bar--inactive { background: #f2f1ec; border-bottom-color: #e3e1d8; }
 .filter-bar--inactive .filter-bar-label { color: #9a9285; }
 .filter-bar--inactive .filter-bar-field { color: #9a9285; }

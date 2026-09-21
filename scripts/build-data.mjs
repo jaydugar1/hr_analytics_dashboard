@@ -152,6 +152,31 @@ let terminations = censusTerminations;
 
 // ------------------------------------------------------- termination report
 
+// The census's own terminated rows carry worker_category (needed for the
+// site-wide Exempt/Non-Exempt filter), annual_salary, hire_date, etc., but
+// this project's census export has no termination_reason column at all. The
+// dedicated Termination Report has the reverse: reason/voluntary data, but
+// no worker_category. Neither file has a name or id, so they can't be
+// joined by person — but both carry HOME DEPARTMENT + HIRE DATE +
+// TERMINATION DATE, which together are specific enough to serve as a join
+// key. ENRICH the census terminations with reason/voluntary data from the
+// report (keyed on department+hire+term date) rather than replacing them
+// outright — that keeps worker_category on every termination row instead
+// of losing it, which is what silently broke the Exempt/Non-Exempt filter
+// on Attrition/Turnover/Cost of Attrition (every termination row read as
+// "Other" with no worker_category, so filtering to Exempt or Non-Exempt
+// zeroed the population instead of narrowing it).
+function dateKeyPart(d) {
+  return d instanceof Date && !isNaN(d) ? `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}` : '';
+}
+function terminationJoinKey(r) {
+  const dept = cleanDepartment(r.department) || '';
+  const hire = dateKeyPart(r.hire_date);
+  const term = dateKeyPart(r.termination_date);
+  if (!dept || !hire || !term) return null;
+  return `${dept}|${hire}|${term}`;
+}
+
 if (termPath) {
   const term = readSheet(termPath, 'Termination Report');
   const termResult = ingest('termination_report', term.headers, term.rows);
@@ -159,8 +184,26 @@ if (termPath) {
   if (termResult.mapping.missingRequired.length) {
     console.warn(`  Missing required fields: ${termResult.mapping.missingRequired.join(', ')} — check column names against README.md.`);
   }
-  console.log(`  Replacing ${censusTerminations.length} census-derived termination rows with ${termResult.records.length} rows from the dedicated report.`);
-  terminations = termResult.records;
+
+  const byKey = new Map();
+  for (const t of termResult.records) {
+    const key = terminationJoinKey(t);
+    if (!key) continue;
+    if (!byKey.has(key)) byKey.set(key, []);
+    byKey.get(key).push(t);
+  }
+  let matched = 0;
+  let collided = 0;
+  terminations = censusTerminations.map((c) => {
+    const key = terminationJoinKey(c);
+    const candidates = key ? byKey.get(key) : null;
+    if (!candidates || !candidates.length) return c;
+    matched++;
+    if (candidates.length > 1) collided++;
+    const t = candidates[0]; // multiple report rows share this key -> take the first, same tie-break as the manager matcher
+    return { ...c, termination_reason: t.termination_reason, voluntary_flag: t.voluntary_flag };
+  });
+  console.log(`  Enriched ${matched}/${censusTerminations.length} census terminations with reason/voluntary data (joined on department+hire date+termination date; ${collided} keys matched more than one report row, first used). ${termResult.records.length} report rows read; unmatched ones aren't otherwise used since they have no worker_category to fall back on.`);
 }
 
 // -------------------------------------------------------------- V&R sheet

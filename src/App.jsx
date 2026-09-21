@@ -59,6 +59,7 @@ export default function App() {
   const [tab, setTab] = useState('hc');
   const [dept, setDept] = useState('All');
   const [exempt, setExempt] = useState('All');
+  const [excludeContractors, setExcludeContractors] = useState(false);
 
   const Active = findLeaf(tab).view;
 
@@ -69,13 +70,14 @@ export default function App() {
 
   const matches = (r) =>
     (dept === 'All' || r.department === dept) &&
-    (exempt === 'All' || exemptStatus(r.worker_category) === exempt);
+    (exempt === 'All' || exemptStatus(r.worker_category) === exempt) &&
+    (!excludeContractors || exemptStatus(r.worker_category) !== 'Other');
 
-  const filteredCensus = useMemo(() => CENSUS.filter(matches), [dept, exempt]); // eslint-disable-line react-hooks/exhaustive-deps
-  const filteredTerms = useMemo(() => TERMS.filter(matches), [dept, exempt]); // eslint-disable-line react-hooks/exhaustive-deps
+  const filteredCensus = useMemo(() => CENSUS.filter(matches), [dept, exempt, excludeContractors]); // eslint-disable-line react-hooks/exhaustive-deps
+  const filteredTerms = useMemo(() => TERMS.filter(matches), [dept, exempt, excludeContractors]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const props = { census: filteredCensus, terms: filteredTerms, vrSeparations: VR_SEPARATIONS_LIST };
-  const filtersActive = dept !== 'All' || exempt !== 'All';
+  const filtersActive = dept !== 'All' || exempt !== 'All' || excludeContractors;
   // Span of Control is a fixed aggregate computed at build time (see
   // SpanOfControl.jsx) -- there's no per-record data left at runtime for
   // these filters to narrow, so say so instead of implying they do
@@ -146,8 +148,15 @@ export default function App() {
               <option value="Other">Other (contractor/intern)</option>
             </select>
           </label>
+          <button
+            className={'filter-bar-toggle' + (excludeContractors ? ' filter-bar-toggle--on' : '')}
+            onClick={() => setExcludeContractors((v) => !v)}
+            disabled={!filtersApply}
+          >
+            {excludeContractors ? '✓ ' : ''}Exclude contractors/interns
+          </button>
           {filtersActive && filtersApply && (
-            <button className="filter-bar-clear" onClick={() => { setDept('All'); setExempt('All'); }}>
+            <button className="filter-bar-clear" onClick={() => { setDept('All'); setExempt('All'); setExcludeContractors(false); }}>
               Clear filters
             </button>
           )}
