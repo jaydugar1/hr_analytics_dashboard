@@ -5,19 +5,19 @@ import { SPAN_OF_CONTROL } from '../lib/loadData.js';
 
 const TEAL = '#005042';
 const CORAL = '#FF6947';
-const ESPRESSO = '#311E04';
 
 /**
  * Horizontal bar chart matching the Head of HR's Lantern-brand chart
  * standard (see memory/span-of-control-methodology.md §12): sorted
  * descending, teal bars at/above target, coral below, a dashed
  * company-average line and a dotted target line, value labels beside each
- * bar, and (for Technology) a hatched extension showing the
- * contractor-adjusted figure.
+ * bar. Every value here is directly measured from the data — no
+ * estimated/inferred adjustments (the runbook's Technology contractor
+ * adjustment was deliberately dropped per the user's 2026-09-21 call).
  */
 function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) => cleanDepartment(r.department), keyFor = (r) => r.department }) {
   const domainMax = useMemo(() => {
-    const values = rows.flatMap((r) => [r.avgDirectReports, r.avgDirectReportsAdjusted ?? 0]);
+    const values = rows.map((r) => r.avgDirectReports);
     const max = Math.max(target, companyAvg, ...values);
     return Math.ceil((max * 1.15) / 2) * 2; // round up to an even number with headroom
   }, [rows, target, companyAvg]);
@@ -37,21 +37,14 @@ function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) =
         <div className="soc-chart-grid">
           {rows.map((r) => {
             const value = r.avgDirectReports;
-            const adjusted = r.avgDirectReportsAdjusted;
-            // Colored by its own FTE value, not the adjusted one — the hatch
-            // extension shows the adjustment separately rather than making
-            // the whole bar read as "meets target" off a hypothetical figure.
             const meetsTarget = value >= target;
             return (
               <React.Fragment key={keyFor(r)}>
                 <div className="soc-row-label">{labelFor(r)}</div>
                 <div className="soc-row-bar-cell">
                   <div className="soc-bar" style={{ width: pct(value), background: meetsTarget ? TEAL : CORAL }} />
-                  {adjusted != null && adjusted > value && (
-                    <div className="soc-bar soc-bar--hatched" style={{ left: pct(value), width: pct(adjusted - value) }} />
-                  )}
-                  <span className="soc-bar-value" style={{ left: `calc(${pct(adjusted ?? value)} + 8px)`, color: adjusted != null ? TEAL : '#311E04' }}>
-                    {value.toFixed(2)}{adjusted != null ? ` → ${adjusted.toFixed(2)}*` : ''}
+                  <span className="soc-bar-value" style={{ left: `calc(${pct(value)} + 8px)` }}>
+                    {value.toFixed(2)}
                   </span>
                 </div>
               </React.Fragment>
@@ -111,7 +104,6 @@ export default function SpanOfControl() {
   const s = excludeContractors && hasExcluding ? full.excludingContractors : full;
 
   const target = s.target ?? 7;
-  const companyAvg = s.overallAvgWithContractors ?? s.overallAvg;
 
   return (
     <div className="view-stack">
@@ -144,17 +136,17 @@ export default function SpanOfControl() {
       </div>
 
       <div className="kpi-grid-3x">
-        <Kpi value={s.overallAvg} label="Avg Direct Reports (FTE only)" />
-        <Kpi value={s.overallAvgWithContractors ?? s.overallAvg} label="Avg Direct Reports (incl. contractors)" />
+        <Kpi value={s.overallAvg} label="Avg Direct Reports" />
         <Kpi value={s.managerCount.toLocaleString()} label="Distinct Managers" />
+        <Kpi value={s.reportCount.toLocaleString()} label="Active Reports Counted" />
       </div>
 
       <SpanChart
         rows={s.byDept}
         target={target}
-        companyAvg={companyAvg}
+        companyAvg={s.overallAvg}
         title="Span of Control by Department — Current"
-        subtitle={`${s.managerCount.toLocaleString()} managers · company average ${companyAvg.toFixed(2)} (incl. contractors) · target ${target}`}
+        subtitle={`${s.managerCount.toLocaleString()} managers · company average ${s.overallAvg.toFixed(2)} · target ${target}`}
       />
 
       {s.byExemptStatus?.length > 0 && (
@@ -172,11 +164,11 @@ export default function SpanOfControl() {
       <div className="callout">
         <div className="callout-title">How this is computed</div>
         Among each consolidated department's active people, we group by who they report to and average the resulting
-        team sizes. Technology's bar shows its FTE-only span solid, with a hatched extension to its contractor-adjusted
-        span (the census doesn't include Technology's ~66 embedded contractors, assumed to distribute evenly across
-        its managers). The company average and target line reflect contractors; department bars are FTE-only except
-        Technology's hatch. Figures reflect ongoing organizational restructuring, so minor mismatches vs. other
-        reports may exist, but the analysis is directionally accurate.
+        team sizes. Every figure here is directly measured from the census and reports-to export — no estimated or
+        inferred adjustments (e.g. Technology's contractors are only counted if they appear in the export with a
+        resolved manager; nothing is added on top for contractors the data doesn't capture). Figures reflect ongoing
+        organizational restructuring, so minor mismatches vs. other reports may exist, but the analysis is
+        directionally accurate.
       </div>
     </div>
   );

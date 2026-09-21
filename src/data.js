@@ -33927,7 +33927,6 @@ export const VR_SEPARATIONS = [
 ];
 export const SPAN_OF_CONTROL = {
   "overallAvg": 6.1,
-  "overallAvgWithContractors": 6.6,
   "managerCount": 139,
   "reportCount": 853,
   "target": 7,
@@ -33943,9 +33942,7 @@ export const SPAN_OF_CONTROL = {
       "department": "Technology",
       "avgDirectReports": 5.4,
       "managerCount": 28,
-      "reportCount": 150,
-      "avgDirectReportsAdjusted": 7.7,
-      "contractorsAdded": 66
+      "reportCount": 150
     },
     {
       "department": "Provider",
@@ -34042,7 +34039,6 @@ export const SPAN_OF_CONTROL = {
   ],
   "excludingContractors": {
     "overallAvg": 5.7,
-    "overallAvgWithContractors": 6.2,
     "managerCount": 130,
     "reportCount": 743,
     "target": 7,
@@ -34070,9 +34066,7 @@ export const SPAN_OF_CONTROL = {
         "department": "Technology",
         "avgDirectReports": 2.6,
         "managerCount": 24,
-        "reportCount": 62,
-        "avgDirectReportsAdjusted": 5.3,
-        "contractorsAdded": 66
+        "reportCount": 62
       },
       {
         "department": "Client Success",

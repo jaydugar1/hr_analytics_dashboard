@@ -100,10 +100,12 @@ function consolidateDepartment(raw) {
   return DEPT_CONSOLIDATION[cleaned] || cleaned;
 }
 
-// Technology contractor adjustment (runbook §8): the census is FTE-only,
-// and Technology carries 66 contractors the census doesn't capture, assumed
-// to distribute evenly across Technology's managers.
-const TECHNOLOGY_CONTRACTORS = 66;
+// NOTE: the runbook (§8) also describes a Technology contractor adjustment
+// (+66 estimated embedded contractors, assumed evenly distributed across
+// Technology's managers). Deliberately NOT implemented here per the user's
+// explicit call (2026-09-21): no inferred/estimated adjustments, only
+// directly-measured data. If Technology's contractors are ever captured in
+// a real export, they'll show up on their own as ordinary reports instead.
 const SPAN_TARGET = 7;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -242,7 +244,7 @@ const allRecords = [...roster, ...terminations];
 // and counted right here, in this Node script, and never leaves this
 // variable scope — SPAN_OF_CONTROL below carries only the resulting
 // averages/counts, never a manager's name or any per-manager breakdown.
-let spanOfControl = { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [], excludingContractors: null };
+let spanOfControl = { overallAvg: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [], excludingContractors: null };
 
 // PRIVACY: everything in this block that touches a name (LEGAL LAST/FIRST
 // NAME, PREFERRED NAME, REPORTS TO NAME) lives ONLY in these local
@@ -446,15 +448,6 @@ if (reportsPath) {
         managerCount: counts.length,
         reportCount: reports,
       };
-      // Technology contractor adjustment (runbook §8): the census is
-      // FTE-only, so add the known contractor headcount on top, assumed to
-      // distribute evenly across Technology's managers. Exempt-status
-      // groups don't get this adjustment — the 66 contractors' own
-      // exempt/non-exempt classification isn't known here.
-      if (key === 'Technology') {
-        row.avgDirectReportsAdjusted = Math.round(((reports + TECHNOLOGY_CONTRACTORS) / counts.length) * 10) / 10;
-        row.contractorsAdded = TECHNOLOGY_CONTRACTORS;
-      }
       return { key, ...row };
     }).sort((a, b) => b.reportCount - a.reportCount);
   }
@@ -467,7 +460,7 @@ if (reportsPath) {
   // note in App.jsx) — instead we bake both versions and let the page
   // switch between them.
   function buildSpanOfControl(records) {
-    if (!records.length) return { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [] };
+    if (!records.length) return { overallAvg: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [] };
     const byManagerOverall = new Map();
     for (const p of records) byManagerOverall.set(p.managerIndex, (byManagerOverall.get(p.managerIndex) || 0) + 1);
     const managerCount = byManagerOverall.size;
@@ -478,7 +471,6 @@ if (reportsPath) {
       .map(({ key, ...rest }) => ({ exemptStatus: key, ...rest }));
     return {
       overallAvg: Math.round((reportCount / managerCount) * 10) / 10,
-      overallAvgWithContractors: Math.round(((reportCount + TECHNOLOGY_CONTRACTORS) / managerCount) * 10) / 10,
       managerCount,
       reportCount,
       target: SPAN_TARGET,
@@ -495,7 +487,7 @@ if (reportsPath) {
     const all = buildSpanOfControl(activeWithManager);
     const excludingContractors = buildSpanOfControl(activeWithManager.filter((p) => p.exempt !== 'Other'));
     spanOfControl = { ...all, excludingContractors };
-    console.log(`  Span of control: ${all.reportCount} active reports across ${all.managerCount} distinct managers (overall avg ${all.overallAvg}, ${all.overallAvgWithContractors} incl. contractors), ${all.byDept.length} consolidated departments, ${all.byExemptStatus.length} exempt-status groups.`);
+    console.log(`  Span of control: ${all.reportCount} active reports across ${all.managerCount} distinct managers (overall avg ${all.overallAvg}), ${all.byDept.length} consolidated departments, ${all.byExemptStatus.length} exempt-status groups.`);
     console.log(`  Excluding contractors/interns: ${excludingContractors.reportCount} reports across ${excludingContractors.managerCount} managers (overall avg ${excludingContractors.overallAvg}).`);
   }
 }
