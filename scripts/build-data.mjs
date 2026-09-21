@@ -242,7 +242,7 @@ const allRecords = [...roster, ...terminations];
 // and counted right here, in this Node script, and never leaves this
 // variable scope — SPAN_OF_CONTROL below carries only the resulting
 // averages/counts, never a manager's name or any per-manager breakdown.
-let spanOfControl = { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [] };
+let spanOfControl = { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [], excludingContractors: null };
 
 // PRIVACY: everything in this block that touches a name (LEGAL LAST/FIRST
 // NAME, PREFERRED NAME, REPORTS TO NAME) lives ONLY in these local
@@ -420,60 +420,63 @@ if (reportsPath) {
     console.log(`  Product transition overrides: resolved ${overridesResolved}/${overrides.length} named individuals${claire != null ? ' + Claire Cunningham' : ''}${amyBrown != null ? ' + Amy Brown role elimination' : ''}.`);
   }
 
-  const activeWithManager = people.filter((p) => p.active && !p.excluded && p.managerIndex != null);
-  if (!activeWithManager.length) {
-    console.warn('  No active rows with a resolved manager found — Span of Control will be empty.');
-  } else {
-    const byManagerOverall = new Map();
-    for (const p of activeWithManager) byManagerOverall.set(p.managerIndex, (byManagerOverall.get(p.managerIndex) || 0) + 1);
-    const managerCount = byManagerOverall.size;
-    const reportCount = activeWithManager.length;
-
-    // Groups active reports by some key (their consolidated department, or
-    // their own exempt/non-exempt status), then for each group value:
-    // group THOSE reports by manager and average the resulting team sizes —
-    // "how many people in this group report to the same manager." Applying
-    // the same grouped-then-manager-averaged logic to exempt status as to
-    // department (rather than, say, classifying a manager by their OWN
-    // exempt status) keeps the two breakdowns directly comparable and
-    // matches how every other page's Exempt/Non-Exempt filter already
-    // slices the population — by each PERSON's own status.
-    function groupAndAverage(records, keyFn) {
-      const byGroup = new Map(); // key -> Map(managerIndex -> count)
-      for (const p of records) {
-        const key = keyFn(p);
-        if (!key) continue;
-        if (!byGroup.has(key)) byGroup.set(key, new Map());
-        const m = byGroup.get(key);
-        m.set(p.managerIndex, (m.get(p.managerIndex) || 0) + 1);
-      }
-      return [...byGroup.entries()].map(([key, managers]) => {
-        const counts = [...managers.values()];
-        const reports = counts.reduce((a, b) => a + b, 0);
-        const row = {
-          avgDirectReports: Math.round((reports / counts.length) * 10) / 10,
-          managerCount: counts.length,
-          reportCount: reports,
-        };
-        // Technology contractor adjustment (runbook §8): the census is
-        // FTE-only, so add the known contractor headcount on top, assumed
-        // to distribute evenly across Technology's managers. Exempt-status
-        // groups don't get this adjustment — the 66 contractors' own
-        // exempt/non-exempt classification isn't known here.
-        if (key === 'Technology') {
-          row.avgDirectReportsAdjusted = Math.round(((reports + TECHNOLOGY_CONTRACTORS) / counts.length) * 10) / 10;
-          row.contractorsAdded = TECHNOLOGY_CONTRACTORS;
-        }
-        return { key, ...row };
-      }).sort((a, b) => b.reportCount - a.reportCount);
+  // Groups active reports by some key (their consolidated department, or
+  // their own exempt/non-exempt status), then for each group value: group
+  // THOSE reports by manager and average the resulting team sizes — "how
+  // many people in this group report to the same manager." Applying the
+  // same grouped-then-manager-averaged logic to exempt status as to
+  // department (rather than, say, classifying a manager by their OWN exempt
+  // status) keeps the two breakdowns directly comparable and matches how
+  // every other page's Exempt/Non-Exempt filter already slices the
+  // population — by each PERSON's own status.
+  function groupAndAverage(records, keyFn) {
+    const byGroup = new Map(); // key -> Map(managerIndex -> count)
+    for (const p of records) {
+      const key = keyFn(p);
+      if (!key) continue;
+      if (!byGroup.has(key)) byGroup.set(key, new Map());
+      const m = byGroup.get(key);
+      m.set(p.managerIndex, (m.get(p.managerIndex) || 0) + 1);
     }
+    return [...byGroup.entries()].map(([key, managers]) => {
+      const counts = [...managers.values()];
+      const reports = counts.reduce((a, b) => a + b, 0);
+      const row = {
+        avgDirectReports: Math.round((reports / counts.length) * 10) / 10,
+        managerCount: counts.length,
+        reportCount: reports,
+      };
+      // Technology contractor adjustment (runbook §8): the census is
+      // FTE-only, so add the known contractor headcount on top, assumed to
+      // distribute evenly across Technology's managers. Exempt-status
+      // groups don't get this adjustment — the 66 contractors' own
+      // exempt/non-exempt classification isn't known here.
+      if (key === 'Technology') {
+        row.avgDirectReportsAdjusted = Math.round(((reports + TECHNOLOGY_CONTRACTORS) / counts.length) * 10) / 10;
+        row.contractorsAdded = TECHNOLOGY_CONTRACTORS;
+      }
+      return { key, ...row };
+    }).sort((a, b) => b.reportCount - a.reportCount);
+  }
 
-    const byDept = groupAndAverage(activeWithManager, (p) => p.finalDept)
+  // Builds the full { overallAvg, byDept, byExemptStatus, ... } shape from
+  // whatever subset of active-with-manager records is passed in — called
+  // twice below (everyone, and excluding contractors/interns) since Span of
+  // Control's per-record data can't live in the browser for the page-wide
+  // filter bar to narrow live (see the "Exclude contractors/interns" toggle
+  // note in App.jsx) — instead we bake both versions and let the page
+  // switch between them.
+  function buildSpanOfControl(records) {
+    if (!records.length) return { overallAvg: null, overallAvgWithContractors: null, managerCount: 0, reportCount: 0, target: SPAN_TARGET, byDept: [], byExemptStatus: [] };
+    const byManagerOverall = new Map();
+    for (const p of records) byManagerOverall.set(p.managerIndex, (byManagerOverall.get(p.managerIndex) || 0) + 1);
+    const managerCount = byManagerOverall.size;
+    const reportCount = records.length;
+    const byDept = groupAndAverage(records, (p) => p.finalDept)
       .map(({ key, ...rest }) => ({ department: key, ...rest }));
-    const byExemptStatus = groupAndAverage(activeWithManager, (p) => p.exempt)
+    const byExemptStatus = groupAndAverage(records, (p) => p.exempt)
       .map(({ key, ...rest }) => ({ exemptStatus: key, ...rest }));
-
-    spanOfControl = {
+    return {
       overallAvg: Math.round((reportCount / managerCount) * 10) / 10,
       overallAvgWithContractors: Math.round(((reportCount + TECHNOLOGY_CONTRACTORS) / managerCount) * 10) / 10,
       managerCount,
@@ -483,7 +486,17 @@ if (reportsPath) {
       byDept,
       byExemptStatus,
     };
-    console.log(`  Span of control: ${reportCount} active reports across ${managerCount} distinct managers (overall avg ${spanOfControl.overallAvg}, ${spanOfControl.overallAvgWithContractors} incl. contractors), ${byDept.length} consolidated departments, ${byExemptStatus.length} exempt-status groups.`);
+  }
+
+  const activeWithManager = people.filter((p) => p.active && !p.excluded && p.managerIndex != null);
+  if (!activeWithManager.length) {
+    console.warn('  No active rows with a resolved manager found — Span of Control will be empty.');
+  } else {
+    const all = buildSpanOfControl(activeWithManager);
+    const excludingContractors = buildSpanOfControl(activeWithManager.filter((p) => p.exempt !== 'Other'));
+    spanOfControl = { ...all, excludingContractors };
+    console.log(`  Span of control: ${all.reportCount} active reports across ${all.managerCount} distinct managers (overall avg ${all.overallAvg}, ${all.overallAvgWithContractors} incl. contractors), ${all.byDept.length} consolidated departments, ${all.byExemptStatus.length} exempt-status groups.`);
+    console.log(`  Excluding contractors/interns: ${excludingContractors.reportCount} reports across ${excludingContractors.managerCount} managers (overall avg ${excludingContractors.overallAvg}).`);
   }
 }
 

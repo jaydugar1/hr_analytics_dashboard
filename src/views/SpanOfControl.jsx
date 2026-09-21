@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Kpi, WidgetUnavailable } from '../components/ui.jsx';
 import { cleanDepartment } from '../lib/department.js';
 import { SPAN_OF_CONTROL } from '../lib/loadData.js';
@@ -94,13 +94,21 @@ function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) =
  * resulting averages/counts, never a name.
  */
 export default function SpanOfControl() {
-  const s = SPAN_OF_CONTROL;
+  const full = SPAN_OF_CONTROL;
+  const [excludeContractors, setExcludeContractors] = useState(false);
 
-  if (!s || s.overallAvg == null) {
+  if (!full || full.overallAvg == null) {
     return (
       <WidgetUnavailable note="No reports-to data has been loaded yet — see scripts/build-data.mjs's 4th argument." />
     );
   }
+
+  // Two full variants are baked at build time (see scripts/build-data.mjs)
+  // since this page's per-record data can't live in the browser for the
+  // page-wide filter bar to narrow live — this local toggle just switches
+  // which precomputed variant renders, rather than filtering anything here.
+  const hasExcluding = full.excludingContractors?.overallAvg != null;
+  const s = excludeContractors && hasExcluding ? full.excludingContractors : full;
 
   const target = s.target ?? 7;
   const companyAvg = s.overallAvgWithContractors ?? s.overallAvg;
@@ -108,10 +116,23 @@ export default function SpanOfControl() {
   return (
     <div className="view-stack">
       <div className="card" style={{ padding: '14px 20px', fontSize: 12.5, color: '#655e52' }}>
-        This page is a fixed aggregate computed from a separate export — it doesn't respond to the department/exempt
-        filters above (there's no per-person data behind it to filter, only the averages themselves). Departments are
-        consolidated per the People Team's Span of Control runbook (e.g. Engineering + Core Technology + Data
-        Management → Technology).{' '}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10, flexWrap: 'wrap' }}>
+          <span>
+            This page is a fixed aggregate computed from a separate export — the department/exempt filters above
+            don't apply here (there's no per-person data behind it to filter, only the averages themselves).
+          </span>
+          {hasExcluding && (
+            <button
+              className={'filter-bar-toggle' + (excludeContractors ? ' filter-bar-toggle--on' : '')}
+              onClick={() => setExcludeContractors((v) => !v)}
+              style={{ marginLeft: 'auto', flexShrink: 0 }}
+            >
+              {excludeContractors ? '✓ ' : ''}Exclude contractors/interns
+            </button>
+          )}
+        </div>
+        Departments are consolidated per the People Team's Span of Control runbook (e.g. Engineering + Core
+        Technology + Data Management → Technology).{' '}
         {s.activationResolved ? (
           <>The Activation carve-out and Product-transition individual reassignments from that runbook are applied.</>
         ) : (
