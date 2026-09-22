@@ -200,6 +200,11 @@ body { font-family: var(--font-body); color: var(--ink); }
 .soc-row-label { font-size: 12.5px; color: #4a4338; display: flex; align-items: center; }
 .soc-row-bar-cell { position: relative; height: 24px; }
 .soc-bar { position: absolute; top: 0; left: 0; height: 100%; border-radius: 0 3px 3px 0; }
+.soc-bar--hatched {
+  position: absolute; top: 0; height: 100%; border: 1px dashed #005042; box-sizing: border-box;
+  background-image: repeating-linear-gradient(45deg, rgba(0, 80, 66, 0.35) 0, rgba(0, 80, 66, 0.35) 3px, transparent 3px, transparent 8px);
+  background-color: rgba(0, 80, 66, 0.08);
+}
 .soc-bar-value { position: absolute; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 700; white-space: nowrap; color: #311E04; }
 /* Aligned to the bar column only (180px label column + 14px grid gap),
    positioned absolutely against .soc-chart-area rather than as a grid item

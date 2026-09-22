@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { Kpi, WidgetUnavailable } from '../components/ui.jsx';
 import { cleanDepartment } from '../lib/department.js';
 import { SPAN_OF_CONTROL } from '../lib/loadData.js';
@@ -9,15 +9,19 @@ const CORAL = '#FF6947';
 /**
  * Horizontal bar chart matching the Head of HR's Lantern-brand chart
  * standard (see memory/span-of-control-methodology.md §12): sorted
- * descending, teal bars at/above target, coral below, a dashed
- * company-average line and a dotted target line, value labels beside each
- * bar. Every value here is directly measured from the data — no
- * estimated/inferred adjustments (the runbook's Technology contractor
- * adjustment was deliberately dropped per the user's 2026-09-21 call).
+ * descending, teal/coral bars vs. target, a dashed company-average line, a
+ * dotted target line, value labels beside each bar, and — restoring the
+ * shading from the Head of HR's original slide — a hatched extension where
+ * a group's real, visible contractors widen its average. Unlike the
+ * earlier "+66 estimated Technology contractors" version, both the solid
+ * and hatched portions here are directly measured over the SAME manager
+ * count (see groupAndAverageWithShading in scripts/build-data.mjs) — solid
+ * = non-contractor reports only, hatch = the real additional contractor
+ * reports on top. Nothing is inferred.
  */
 function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) => cleanDepartment(r.department), keyFor = (r) => r.department }) {
   const domainMax = useMemo(() => {
-    const values = rows.map((r) => r.avgDirectReports);
+    const values = rows.flatMap((r) => [r.avgDirectReports, r.avgDirectReportsAdjusted ?? 0]);
     const max = Math.max(target, companyAvg, ...values);
     return Math.ceil((max * 1.15) / 2) * 2; // round up to an even number with headroom
   }, [rows, target, companyAvg]);
@@ -37,14 +41,22 @@ function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) =
         <div className="soc-chart-grid">
           {rows.map((r) => {
             const value = r.avgDirectReports;
+            const adjusted = r.avgDirectReportsAdjusted;
+            // Colored by its own non-contractor value, not the adjusted one
+            // — the hatch shows the real contractor add-on separately
+            // rather than making the whole bar read as "meets target" off
+            // a number that includes contractors.
             const meetsTarget = value >= target;
             return (
               <React.Fragment key={keyFor(r)}>
                 <div className="soc-row-label">{labelFor(r)}</div>
                 <div className="soc-row-bar-cell">
                   <div className="soc-bar" style={{ width: pct(value), background: meetsTarget ? TEAL : CORAL }} />
-                  <span className="soc-bar-value" style={{ left: `calc(${pct(value)} + 8px)` }}>
-                    {value.toFixed(2)}
+                  {adjusted != null && adjusted > value && (
+                    <div className="soc-bar soc-bar--hatched" style={{ left: pct(value), width: pct(adjusted - value) }} />
+                  )}
+                  <span className="soc-bar-value" style={{ left: `calc(${pct(adjusted ?? value)} + 8px)`, color: adjusted != null ? TEAL : undefined }}>
+                    {value.toFixed(2)}{adjusted != null ? ` → ${adjusted.toFixed(2)}` : ''}
                   </span>
                 </div>
               </React.Fragment>
@@ -87,44 +99,24 @@ function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) =
  * resulting averages/counts, never a name.
  */
 export default function SpanOfControl() {
-  const full = SPAN_OF_CONTROL;
-  const [excludeContractors, setExcludeContractors] = useState(false);
+  const s = SPAN_OF_CONTROL;
 
-  if (!full || full.overallAvg == null) {
+  if (!s || s.overallAvg == null) {
     return (
       <WidgetUnavailable note="No reports-to data has been loaded yet — see scripts/build-data.mjs's 4th argument." />
     );
   }
 
-  // Two full variants are baked at build time (see scripts/build-data.mjs)
-  // since this page's per-record data can't live in the browser for the
-  // page-wide filter bar to narrow live — this local toggle just switches
-  // which precomputed variant renders, rather than filtering anything here.
-  const hasExcluding = full.excludingContractors?.overallAvg != null;
-  const s = excludeContractors && hasExcluding ? full.excludingContractors : full;
-
   const target = s.target ?? 7;
+  const companyAvg = s.overallAvgWithContractors ?? s.overallAvg;
 
   return (
     <div className="view-stack">
       <div className="card" style={{ padding: '14px 20px', fontSize: 12.5, color: '#655e52' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10, flexWrap: 'wrap' }}>
-          <span>
-            This page is a fixed aggregate computed from a separate export — the department/exempt filters above
-            don't apply here (there's no per-person data behind it to filter, only the averages themselves).
-          </span>
-          {hasExcluding && (
-            <button
-              className={'filter-bar-toggle' + (excludeContractors ? ' filter-bar-toggle--on' : '')}
-              onClick={() => setExcludeContractors((v) => !v)}
-              style={{ marginLeft: 'auto', flexShrink: 0 }}
-            >
-              {excludeContractors ? '✓ ' : ''}Exclude contractors/interns
-            </button>
-          )}
-        </div>
-        Departments are consolidated per the People Team's Span of Control runbook (e.g. Engineering + Core
-        Technology + Data Management → Technology).{' '}
+        This page is a fixed aggregate computed from a separate export — it doesn't respond to the department/exempt
+        filters above (there's no per-person data behind it to filter, only the averages themselves). Departments are
+        consolidated per the People Team's Span of Control runbook (e.g. Engineering + Core Technology + Data
+        Management → Technology).{' '}
         {s.activationResolved ? (
           <>The Activation carve-out and Product-transition individual reassignments from that runbook are applied.</>
         ) : (
@@ -136,17 +128,17 @@ export default function SpanOfControl() {
       </div>
 
       <div className="kpi-grid-3x">
-        <Kpi value={s.overallAvg} label="Avg Direct Reports" />
+        <Kpi value={s.overallAvg} label="Avg Direct Reports (non-contractor)" />
+        <Kpi value={s.overallAvgWithContractors ?? s.overallAvg} label="Avg Direct Reports (incl. contractors)" />
         <Kpi value={s.managerCount.toLocaleString()} label="Distinct Managers" />
-        <Kpi value={s.reportCount.toLocaleString()} label="Active Reports Counted" />
       </div>
 
       <SpanChart
         rows={s.byDept}
         target={target}
-        companyAvg={s.overallAvg}
+        companyAvg={companyAvg}
         title="Span of Control by Department — Current"
-        subtitle={`${s.managerCount.toLocaleString()} managers · company average ${s.overallAvg.toFixed(2)} · target ${target}`}
+        subtitle={`${s.managerCount.toLocaleString()} managers · company average ${companyAvg.toFixed(2)} (incl. contractors) · target ${target}`}
       />
 
       {s.byExemptStatus?.length > 0 && (
@@ -163,12 +155,12 @@ export default function SpanOfControl() {
 
       <div className="callout">
         <div className="callout-title">How this is computed</div>
-        Among each consolidated department's active people, we group by who they report to and average the resulting
-        team sizes. Every figure here is directly measured from the census and reports-to export — no estimated or
-        inferred adjustments (e.g. Technology's contractors are only counted if they appear in the export with a
-        resolved manager; nothing is added on top for contractors the data doesn't capture). Figures reflect ongoing
-        organizational restructuring, so minor mismatches vs. other reports may exist, but the analysis is
-        directionally accurate.
+        Among each consolidated department's active people, we group by who they report to. The solid bar counts only
+        non-contractor reports; the hatched extension (where present) adds each department's real, visible
+        contractors on top — both are averaged over the exact same set of managers, so the two numbers are directly
+        comparable and nothing is estimated. A department with no hatch simply has no contractors in this export.
+        Figures reflect ongoing organizational restructuring, so minor mismatches vs. other reports may exist, but
+        the analysis is directionally accurate.
       </div>
     </div>
   );

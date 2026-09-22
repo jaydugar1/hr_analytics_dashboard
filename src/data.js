@@ -33926,9 +33926,11 @@ export const VR_SEPARATIONS = [
   }
 ];
 export const SPAN_OF_CONTROL = {
-  "overallAvg": 6.1,
+  "overallAvg": 5.3,
+  "overallAvgWithContractors": 6.1,
   "managerCount": 139,
-  "reportCount": 853,
+  "reportCount": 743,
+  "reportCountWithContractors": 853,
   "target": 7,
   "activationResolved": true,
   "byDept": [
@@ -33939,22 +33941,26 @@ export const SPAN_OF_CONTROL = {
       "reportCount": 269
     },
     {
-      "department": "Technology",
-      "avgDirectReports": 5.4,
-      "managerCount": 28,
-      "reportCount": 150
-    },
-    {
       "department": "Provider",
-      "avgDirectReports": 4.3,
+      "avgDirectReports": 4.1,
       "managerCount": 22,
-      "reportCount": 94
+      "reportCount": 91,
+      "avgDirectReportsAdjusted": 4.3,
+      "contractorsAdded": 3
     },
     {
       "department": "Activation",
       "avgDirectReports": 6.6,
       "managerCount": 13,
       "reportCount": 86
+    },
+    {
+      "department": "Technology",
+      "avgDirectReports": 2.2,
+      "managerCount": 28,
+      "reportCount": 62,
+      "avgDirectReportsAdjusted": 5.4,
+      "contractorsAdded": 88
     },
     {
       "department": "Client Success",
@@ -33964,15 +33970,19 @@ export const SPAN_OF_CONTROL = {
     },
     {
       "department": "Marketing",
-      "avgDirectReports": 2.6,
+      "avgDirectReports": 2.1,
       "managerCount": 17,
-      "reportCount": 44
+      "reportCount": 36,
+      "avgDirectReportsAdjusted": 2.6,
+      "contractorsAdded": 8
     },
     {
       "department": "CFO Organization",
-      "avgDirectReports": 2.9,
+      "avgDirectReports": 2.8,
       "managerCount": 12,
-      "reportCount": 35
+      "reportCount": 33,
+      "avgDirectReportsAdjusted": 2.9,
+      "contractorsAdded": 2
     },
     {
       "department": "Business Development",
@@ -33982,27 +33992,35 @@ export const SPAN_OF_CONTROL = {
     },
     {
       "department": "Strategy & Analytics",
-      "avgDirectReports": 4.2,
+      "avgDirectReports": 3.7,
       "managerCount": 6,
-      "reportCount": 25
+      "reportCount": 22,
+      "avgDirectReportsAdjusted": 4.2,
+      "contractorsAdded": 3
     },
     {
       "department": "Partnerships",
-      "avgDirectReports": 2.8,
+      "avgDirectReports": 2.6,
       "managerCount": 8,
-      "reportCount": 22
+      "reportCount": 21,
+      "avgDirectReportsAdjusted": 2.8,
+      "contractorsAdded": 1
     },
     {
       "department": "Human Resources",
-      "avgDirectReports": 4.5,
+      "avgDirectReports": 3.5,
       "managerCount": 4,
-      "reportCount": 18
+      "reportCount": 14,
+      "avgDirectReportsAdjusted": 4.5,
+      "contractorsAdded": 4
     },
     {
       "department": "Commercial Strategy & Operations",
-      "avgDirectReports": 2.3,
+      "avgDirectReports": 2,
       "managerCount": 4,
-      "reportCount": 9
+      "reportCount": 8,
+      "avgDirectReportsAdjusted": 2.3,
+      "contractorsAdded": 1
     },
     {
       "department": "Clinical",
@@ -34036,112 +34054,5 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 30,
       "reportCount": 110
     }
-  ],
-  "excludingContractors": {
-    "overallAvg": 5.7,
-    "managerCount": 130,
-    "reportCount": 743,
-    "target": 7,
-    "activationResolved": true,
-    "byDept": [
-      {
-        "department": "Conversion",
-        "avgDirectReports": 9,
-        "managerCount": 30,
-        "reportCount": 269
-      },
-      {
-        "department": "Provider",
-        "avgDirectReports": 4.3,
-        "managerCount": 21,
-        "reportCount": 91
-      },
-      {
-        "department": "Activation",
-        "avgDirectReports": 6.6,
-        "managerCount": 13,
-        "reportCount": 86
-      },
-      {
-        "department": "Technology",
-        "avgDirectReports": 2.6,
-        "managerCount": 24,
-        "reportCount": 62
-      },
-      {
-        "department": "Client Success",
-        "avgDirectReports": 5.1,
-        "managerCount": 12,
-        "reportCount": 61
-      },
-      {
-        "department": "Marketing",
-        "avgDirectReports": 2.6,
-        "managerCount": 14,
-        "reportCount": 36
-      },
-      {
-        "department": "CFO Organization",
-        "avgDirectReports": 3,
-        "managerCount": 11,
-        "reportCount": 33
-      },
-      {
-        "department": "Business Development",
-        "avgDirectReports": 3.9,
-        "managerCount": 8,
-        "reportCount": 31
-      },
-      {
-        "department": "Strategy & Analytics",
-        "avgDirectReports": 3.7,
-        "managerCount": 6,
-        "reportCount": 22
-      },
-      {
-        "department": "Partnerships",
-        "avgDirectReports": 2.6,
-        "managerCount": 8,
-        "reportCount": 21
-      },
-      {
-        "department": "Human Resources",
-        "avgDirectReports": 3.5,
-        "managerCount": 4,
-        "reportCount": 14
-      },
-      {
-        "department": "Commercial Strategy & Operations",
-        "avgDirectReports": 2.7,
-        "managerCount": 3,
-        "reportCount": 8
-      },
-      {
-        "department": "Clinical",
-        "avgDirectReports": 2,
-        "managerCount": 3,
-        "reportCount": 6
-      },
-      {
-        "department": "Executive",
-        "avgDirectReports": 3,
-        "managerCount": 1,
-        "reportCount": 3
-      }
-    ],
-    "byExemptStatus": [
-      {
-        "exemptStatus": "Exempt",
-        "avgDirectReports": 4,
-        "managerCount": 110,
-        "reportCount": 441
-      },
-      {
-        "exemptStatus": "Non-Exempt",
-        "avgDirectReports": 10.8,
-        "managerCount": 28,
-        "reportCount": 302
-      }
-    ]
-  }
+  ]
 };
