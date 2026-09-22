@@ -33938,7 +33938,65 @@ export const SPAN_OF_CONTROL = {
       "department": "Conversion",
       "avgDirectReports": 9,
       "managerCount": 30,
-      "reportCount": 269
+      "reportCount": 269,
+      "distribution": [
+        {
+          "directReports": 59,
+          "managerCount": 1
+        },
+        {
+          "directReports": 17,
+          "managerCount": 1
+        },
+        {
+          "directReports": 14,
+          "managerCount": 1
+        },
+        {
+          "directReports": 13,
+          "managerCount": 1
+        },
+        {
+          "directReports": 12,
+          "managerCount": 3
+        },
+        {
+          "directReports": 11,
+          "managerCount": 4
+        },
+        {
+          "directReports": 10,
+          "managerCount": 2
+        },
+        {
+          "directReports": 9,
+          "managerCount": 1
+        },
+        {
+          "directReports": 8,
+          "managerCount": 2
+        },
+        {
+          "directReports": 6,
+          "managerCount": 1
+        },
+        {
+          "directReports": 5,
+          "managerCount": 3
+        },
+        {
+          "directReports": 3,
+          "managerCount": 4
+        },
+        {
+          "directReports": 2,
+          "managerCount": 2
+        },
+        {
+          "directReports": 1,
+          "managerCount": 4
+        }
+      ]
     },
     {
       "department": "Provider",
@@ -33946,13 +34004,89 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 22,
       "reportCount": 91,
       "avgDirectReportsAdjusted": 4.3,
-      "contractorsAdded": 3
+      "contractorsAdded": 3,
+      "distribution": [
+        {
+          "directReports": 14,
+          "managerCount": 1
+        },
+        {
+          "directReports": 12,
+          "managerCount": 1
+        },
+        {
+          "directReports": 8,
+          "managerCount": 2
+        },
+        {
+          "directReports": 6,
+          "managerCount": 2
+        },
+        {
+          "directReports": 5,
+          "managerCount": 1
+        },
+        {
+          "directReports": 4,
+          "managerCount": 4
+        },
+        {
+          "directReports": 3,
+          "managerCount": 2
+        },
+        {
+          "directReports": 2,
+          "managerCount": 4
+        },
+        {
+          "directReports": 1,
+          "managerCount": 5
+        }
+      ]
     },
     {
       "department": "Activation",
       "avgDirectReports": 6.6,
       "managerCount": 13,
-      "reportCount": 86
+      "reportCount": 86,
+      "distribution": [
+        {
+          "directReports": 14,
+          "managerCount": 1
+        },
+        {
+          "directReports": 13,
+          "managerCount": 2
+        },
+        {
+          "directReports": 12,
+          "managerCount": 1
+        },
+        {
+          "directReports": 8,
+          "managerCount": 1
+        },
+        {
+          "directReports": 5,
+          "managerCount": 2
+        },
+        {
+          "directReports": 4,
+          "managerCount": 1
+        },
+        {
+          "directReports": 3,
+          "managerCount": 3
+        },
+        {
+          "directReports": 2,
+          "managerCount": 1
+        },
+        {
+          "directReports": 1,
+          "managerCount": 1
+        }
+      ]
     },
     {
       "department": "Technology",
@@ -33960,13 +34094,93 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 28,
       "reportCount": 62,
       "avgDirectReportsAdjusted": 5.4,
-      "contractorsAdded": 88
+      "contractorsAdded": 88,
+      "distribution": [
+        {
+          "directReports": 22,
+          "managerCount": 1
+        },
+        {
+          "directReports": 14,
+          "managerCount": 1
+        },
+        {
+          "directReports": 13,
+          "managerCount": 1
+        },
+        {
+          "directReports": 9,
+          "managerCount": 1
+        },
+        {
+          "directReports": 8,
+          "managerCount": 4
+        },
+        {
+          "directReports": 7,
+          "managerCount": 2
+        },
+        {
+          "directReports": 5,
+          "managerCount": 2
+        },
+        {
+          "directReports": 4,
+          "managerCount": 3
+        },
+        {
+          "directReports": 3,
+          "managerCount": 4
+        },
+        {
+          "directReports": 2,
+          "managerCount": 3
+        },
+        {
+          "directReports": 1,
+          "managerCount": 6
+        }
+      ]
     },
     {
       "department": "Client Success",
       "avgDirectReports": 5.1,
       "managerCount": 12,
-      "reportCount": 61
+      "reportCount": 61,
+      "distribution": [
+        {
+          "directReports": 9,
+          "managerCount": 1
+        },
+        {
+          "directReports": 8,
+          "managerCount": 1
+        },
+        {
+          "directReports": 7,
+          "managerCount": 2
+        },
+        {
+          "directReports": 6,
+          "managerCount": 1
+        },
+        {
+          "directReports": 5,
+          "managerCount": 3
+        },
+        {
+          "directReports": 4,
+          "managerCount": 1
+        },
+        {
+          "directReports": 3,
+          "managerCount": 1
+        },
+        {
+          "directReports": 1,
+          "managerCount": 2
+        }
+      ]
     },
     {
       "department": "Marketing",
@@ -33974,7 +34188,33 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 17,
       "reportCount": 36,
       "avgDirectReportsAdjusted": 2.6,
-      "contractorsAdded": 8
+      "contractorsAdded": 8,
+      "distribution": [
+        {
+          "directReports": 9,
+          "managerCount": 1
+        },
+        {
+          "directReports": 6,
+          "managerCount": 1
+        },
+        {
+          "directReports": 5,
+          "managerCount": 1
+        },
+        {
+          "directReports": 4,
+          "managerCount": 2
+        },
+        {
+          "directReports": 2,
+          "managerCount": 4
+        },
+        {
+          "directReports": 1,
+          "managerCount": 8
+        }
+      ]
     },
     {
       "department": "CFO Organization",
@@ -33982,13 +34222,61 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 12,
       "reportCount": 33,
       "avgDirectReportsAdjusted": 2.9,
-      "contractorsAdded": 2
+      "contractorsAdded": 2,
+      "distribution": [
+        {
+          "directReports": 6,
+          "managerCount": 1
+        },
+        {
+          "directReports": 5,
+          "managerCount": 1
+        },
+        {
+          "directReports": 4,
+          "managerCount": 3
+        },
+        {
+          "directReports": 3,
+          "managerCount": 2
+        },
+        {
+          "directReports": 2,
+          "managerCount": 1
+        },
+        {
+          "directReports": 1,
+          "managerCount": 4
+        }
+      ]
     },
     {
       "department": "Business Development",
       "avgDirectReports": 3.9,
       "managerCount": 8,
-      "reportCount": 31
+      "reportCount": 31,
+      "distribution": [
+        {
+          "directReports": 7,
+          "managerCount": 1
+        },
+        {
+          "directReports": 6,
+          "managerCount": 1
+        },
+        {
+          "directReports": 5,
+          "managerCount": 2
+        },
+        {
+          "directReports": 3,
+          "managerCount": 2
+        },
+        {
+          "directReports": 1,
+          "managerCount": 2
+        }
+      ]
     },
     {
       "department": "Strategy & Analytics",
@@ -33996,7 +34284,21 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 6,
       "reportCount": 22,
       "avgDirectReportsAdjusted": 4.2,
-      "contractorsAdded": 3
+      "contractorsAdded": 3,
+      "distribution": [
+        {
+          "directReports": 12,
+          "managerCount": 1
+        },
+        {
+          "directReports": 5,
+          "managerCount": 2
+        },
+        {
+          "directReports": 1,
+          "managerCount": 3
+        }
+      ]
     },
     {
       "department": "Partnerships",
@@ -34004,7 +34306,25 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 8,
       "reportCount": 21,
       "avgDirectReportsAdjusted": 2.8,
-      "contractorsAdded": 1
+      "contractorsAdded": 1,
+      "distribution": [
+        {
+          "directReports": 9,
+          "managerCount": 1
+        },
+        {
+          "directReports": 3,
+          "managerCount": 1
+        },
+        {
+          "directReports": 2,
+          "managerCount": 4
+        },
+        {
+          "directReports": 1,
+          "managerCount": 2
+        }
+      ]
     },
     {
       "department": "Human Resources",
@@ -34012,7 +34332,25 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 4,
       "reportCount": 14,
       "avgDirectReportsAdjusted": 4.5,
-      "contractorsAdded": 4
+      "contractorsAdded": 4,
+      "distribution": [
+        {
+          "directReports": 9,
+          "managerCount": 1
+        },
+        {
+          "directReports": 6,
+          "managerCount": 1
+        },
+        {
+          "directReports": 2,
+          "managerCount": 1
+        },
+        {
+          "directReports": 1,
+          "managerCount": 1
+        }
+      ]
     },
     {
       "department": "Commercial Strategy & Operations",
@@ -34020,19 +34358,53 @@ export const SPAN_OF_CONTROL = {
       "managerCount": 4,
       "reportCount": 8,
       "avgDirectReportsAdjusted": 2.3,
-      "contractorsAdded": 1
+      "contractorsAdded": 1,
+      "distribution": [
+        {
+          "directReports": 4,
+          "managerCount": 1
+        },
+        {
+          "directReports": 3,
+          "managerCount": 1
+        },
+        {
+          "directReports": 1,
+          "managerCount": 2
+        }
+      ]
     },
     {
       "department": "Clinical",
       "avgDirectReports": 2,
       "managerCount": 3,
-      "reportCount": 6
+      "reportCount": 6,
+      "distribution": [
+        {
+          "directReports": 3,
+          "managerCount": 1
+        },
+        {
+          "directReports": 2,
+          "managerCount": 1
+        },
+        {
+          "directReports": 1,
+          "managerCount": 1
+        }
+      ]
     },
     {
       "department": "Executive",
       "avgDirectReports": 3,
       "managerCount": 1,
-      "reportCount": 3
+      "reportCount": 3,
+      "distribution": [
+        {
+          "directReports": 3,
+          "managerCount": 1
+        }
+      ]
     }
   ],
   "byExemptStatus": [

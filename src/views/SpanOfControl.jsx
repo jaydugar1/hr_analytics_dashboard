@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Kpi, WidgetUnavailable } from '../components/ui.jsx';
 import { cleanDepartment } from '../lib/department.js';
 import { SPAN_OF_CONTROL } from '../lib/loadData.js';
@@ -18,8 +18,11 @@ const CORAL = '#FF6947';
  * count (see groupAndAverageWithShading in scripts/build-data.mjs) — solid
  * = non-contractor reports only, hatch = the real additional contractor
  * reports on top. Nothing is inferred.
+ *
+ * Pass `onRowClick` to make rows clickable — used by the department chart
+ * to open the manager-distribution panel beside it.
  */
-function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) => cleanDepartment(r.department), keyFor = (r) => r.department }) {
+function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) => cleanDepartment(r.department), keyFor = (r) => r.department, onRowClick, selectedKey }) {
   const domainMax = useMemo(() => {
     const values = rows.flatMap((r) => [r.avgDirectReports, r.avgDirectReportsAdjusted ?? 0]);
     const max = Math.max(target, companyAvg, ...values);
@@ -47,11 +50,23 @@ function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) =
             // rather than making the whole bar read as "meets target" off
             // a number that includes contractors.
             const meetsTarget = value >= target;
+            const key = keyFor(r);
+            const isSelected = onRowClick && selectedKey === key;
             return (
-              <React.Fragment key={keyFor(r)}>
-                <div className="soc-row-label">{labelFor(r)}</div>
-                <div className="soc-row-bar-cell">
-                  <div className="soc-bar" style={{ width: pct(value), background: meetsTarget ? TEAL : CORAL }} />
+              <React.Fragment key={key}>
+                <div
+                  className={'soc-row-label' + (onRowClick ? ' soc-row-label--click' : '')}
+                  onClick={onRowClick ? () => onRowClick(isSelected ? null : key) : undefined}
+                  style={isSelected ? { fontWeight: 700, color: TEAL } : undefined}
+                >
+                  {labelFor(r)}
+                </div>
+                <div
+                  className="soc-row-bar-cell"
+                  onClick={onRowClick ? () => onRowClick(isSelected ? null : key) : undefined}
+                  style={onRowClick ? { cursor: 'pointer' } : undefined}
+                >
+                  <div className="soc-bar" style={{ width: pct(value), background: meetsTarget ? TEAL : CORAL, outline: isSelected ? `2px solid ${TEAL}` : 'none' }} />
                   {adjusted != null && adjusted > value && (
                     <div className="soc-bar soc-bar--hatched" style={{ left: pct(value), width: pct(adjusted - value) }} />
                   )}
@@ -91,6 +106,29 @@ function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) =
   );
 }
 
+/** Right-hand panel: how many managers have exactly N direct reports, top to bottom. */
+function DistributionPanel({ department, distribution, onClose }) {
+  const maxManagers = Math.max(1, ...distribution.map((d) => d.managerCount));
+  return (
+    <div className="card card--pad" style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 4 }}>
+        <div className="soc-chart-title" style={{ fontSize: 16 }}>{cleanDepartment(department)}</div>
+        <button className="filter-bar-toggle" style={{ marginLeft: 'auto', padding: '3px 10px', fontSize: 11 }} onClick={onClose}>Close</button>
+      </div>
+      <div className="soc-chart-subtitle" style={{ marginBottom: 14 }}>Managers by direct-report count, real team size (contractors included)</div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {distribution.map((d) => (
+          <div key={d.directReports} style={{ display: 'grid', gridTemplateColumns: '90px 1fr 28px', alignItems: 'center', gap: 8 }}>
+            <span style={{ fontSize: 12.5, color: '#4a4338' }}>{d.directReports} direct report{d.directReports === 1 ? '' : 's'}</span>
+            <div className="soc-dist-track"><div className="soc-dist-fill" style={{ width: `${(d.managerCount / maxManagers) * 100}%` }} /></div>
+            <span style={{ fontSize: 12.5, fontWeight: 700, color: '#311E04', textAlign: 'right' }}>{d.managerCount}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /**
  * Average direct reports, overall and by department. The underlying numbers
  * are computed once at build time (scripts/build-data.mjs) from a census
@@ -100,6 +138,7 @@ function SpanChart({ rows, target, companyAvg, title, subtitle, labelFor = (r) =
  */
 export default function SpanOfControl() {
   const s = SPAN_OF_CONTROL;
+  const [selectedDept, setSelectedDept] = useState(null);
 
   if (!s || s.overallAvg == null) {
     return (
@@ -109,6 +148,7 @@ export default function SpanOfControl() {
 
   const target = s.target ?? 7;
   const companyAvg = s.overallAvgWithContractors ?? s.overallAvg;
+  const selectedRow = selectedDept ? s.byDept.find((r) => r.department === selectedDept) : null;
 
   return (
     <div className="view-stack">
@@ -133,13 +173,20 @@ export default function SpanOfControl() {
         <Kpi value={s.managerCount.toLocaleString()} label="Distinct Managers" />
       </div>
 
-      <SpanChart
-        rows={s.byDept}
-        target={target}
-        companyAvg={companyAvg}
-        title="Span of Control by Department — Current"
-        subtitle={`${s.managerCount.toLocaleString()} managers · company average ${companyAvg.toFixed(2)} (incl. contractors) · target ${target}`}
-      />
+      <div style={selectedRow ? { display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 16, alignItems: 'start' } : undefined}>
+        <SpanChart
+          rows={s.byDept}
+          target={target}
+          companyAvg={companyAvg}
+          title="Span of Control by Department — Current"
+          subtitle={`${s.managerCount.toLocaleString()} managers · company average ${companyAvg.toFixed(2)} (incl. contractors) · target ${target} · click a bar for its manager breakdown`}
+          onRowClick={setSelectedDept}
+          selectedKey={selectedDept}
+        />
+        {selectedRow && (
+          <DistributionPanel department={selectedRow.department} distribution={selectedRow.distribution || []} onClose={() => setSelectedDept(null)} />
+        )}
+      </div>
 
       {s.byExemptStatus?.length > 0 && (
         <SpanChart

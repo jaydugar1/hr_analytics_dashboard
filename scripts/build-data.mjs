@@ -471,6 +471,16 @@ if (reportsPath) {
         row.avgDirectReportsAdjusted = Math.round((totalAll / managerCount) * 10) / 10;
         row.contractorsAdded = totalAll - totalNonContractor;
       }
+      // Distribution: how many managers have exactly N direct reports
+      // (counting every report, contractors included — a manager's real
+      // team size), sorted descending by N. Drives the click-a-bar-to-see
+      // the breakdown panel on the page; never carries a manager identity,
+      // only how many managers land at each count.
+      const byCount = new Map();
+      for (const e of entries) byCount.set(e.all, (byCount.get(e.all) || 0) + 1);
+      row.distribution = [...byCount.entries()]
+        .map(([directReports, managerCount]) => ({ directReports, managerCount }))
+        .sort((a, b) => b.directReports - a.directReports);
       return { key, ...row };
     }).sort((a, b) => b.reportCount - a.reportCount);
   }
