@@ -211,14 +211,19 @@ if (termPath) {
 // -------------------------------------------------------------- V&R sheet
 
 // PRIVACY NOTE / DATA LIMITATION: joinVrFlags matches V&R rows onto
-// termination records by employee id or full name. This project's real
-// exports have neither (good for privacy, since nothing here can ever
-// identify a person) — which also means there is NO shared key to join a
-// V&R workbook onto the termination report by. When that's the case, the
-// V&R rows are baked as their own small standalone dataset (VR_SEPARATIONS)
-// instead of silently failing to join (which would look like it worked but
-// touch zero records). If a future V&R export DOES carry a name/id, the
-// join runs for real and no standalone dataset is written.
+// termination records by employee id or exact full-name string. This
+// project's exports usually have neither (good for privacy, and also means
+// there's no shared key to join a V&R workbook onto the termination report
+// by) — when that's the case, the V&R rows are baked as their own small
+// standalone dataset (VR_SEPARATIONS) so nothing silently disappears.
+//
+// When a V&R export DOES carry names, still ALWAYS bake the full
+// VR_SEPARATIONS dataset too rather than treating the join as a
+// replacement — joinVrFlags's exact-string name match is naive (no
+// middle-name/nickname handling like the manager matcher), so it can
+// silently match only a handful of rows while looking like it "worked."
+// Losing the other ~95% of a 287-row workbook because 5 rows happened to
+// match by exact name would be a real regression, not an improvement.
 let vrSeparations = [];
 
 if (vrPath) {
@@ -227,13 +232,15 @@ if (vrPath) {
   console.log(`V&R workbook: read ${vr.rows.length} rows from sheet "${vr.sheetName}", mapped ${Object.keys(vrResult.mapping.mapped).length}/${vrResult.registry.fields.length} fields.`);
   const hasJoinKey = vrResult.records.some((v) => v.employee_id != null || v.full_name);
   if (hasJoinKey) {
+    const before = terminations.filter((t) => t.voluntary_flag != null || t.regrettable_flag != null).length;
     terminations = joinVrFlags(terminations, vrResult.records);
-    console.log('  Has a name/id column — joined its voluntary/regrettable flags onto the termination records.');
+    const after = terminations.filter((t) => t.voluntary_flag != null || t.regrettable_flag != null).length;
+    console.log(`  Has a name/id column — opportunistically joined onto ${after - before} termination records by exact name match (of up to ${vrResult.records.length} V&R rows). Still baking the full workbook as VR_SEPARATIONS too, since an exact-name join is naive and typically only matches a small fraction.`);
   } else {
     console.log(`  No employee id or name in this workbook, so it can't be joined to the ${terminations.length} termination records by person.`);
-    console.log(`  Baking its ${vrResult.records.length} rows as a separate standalone dataset (VR_SEPARATIONS) instead.`);
-    vrSeparations = vrResult.records;
   }
+  console.log(`  Baking its ${vrResult.records.length} rows as a separate standalone dataset (VR_SEPARATIONS).`);
+  vrSeparations = vrResult.records;
 }
 
 const allRecords = [...roster, ...terminations];
