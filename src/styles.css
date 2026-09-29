@@ -94,6 +94,7 @@ body { font-family: var(--font-body); color: var(--ink); }
 }
 .nav-dropdown-item:hover { background: var(--green); color: var(--cream); }
 .nav-dropdown-item--active { color: var(--cream); font-weight: 700; }
+.data-updated { font-size: 11.5px; font-weight: 500; color: #8fb8ad; white-space: nowrap; }
 .btn-signout {
   font-size: 12.5px; font-weight: 500; padding: 8px 11px; border-radius: 9999px;
   border: none; background: transparent; color: #cfe6de; cursor: pointer; margin-left: auto;

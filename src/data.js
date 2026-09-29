@@ -24,6 +24,7 @@
 // this department's active people, the average team size of the manager
 // they report to" (see the script for why it's computed this way).
 // ============================================================================
+export const DATA_UPDATED_AT = "2026-09-16";
 export const RECORDS = [
   {
     "department": "100009 - Member Services",

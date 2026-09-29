@@ -1,4 +1,6 @@
-import { RECORDS, VR_SEPARATIONS, SPAN_OF_CONTROL as SPAN_OF_CONTROL_DATA } from '../data.js';
+import { RECORDS, VR_SEPARATIONS, SPAN_OF_CONTROL as SPAN_OF_CONTROL_DATA, DATA_UPDATED_AT as DATA_UPDATED_AT_RAW } from '../data.js';
+
+export const DATA_UPDATED_AT = DATA_UPDATED_AT_RAW || null;
 
 /** 'YYYY-MM-DD' -> local Date, or null. Matches the main repo's date handling
  * (a plain local Date, no timezone shift) so metrics/tenure/attritionCost —

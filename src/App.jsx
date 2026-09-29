@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import PasswordGate from './PasswordGate.jsx';
-import { CENSUS, TERMS, VR_SEPARATIONS_LIST } from './lib/loadData.js';
+import { CENSUS, TERMS, VR_SEPARATIONS_LIST, DATA_UPDATED_AT } from './lib/loadData.js';
 import { cleanDepartment } from './lib/department.js';
 import { exemptStatus } from './lib/exempt.js';
 import Headcount from './views/Headcount.jsx';
@@ -125,6 +125,7 @@ export default function App() {
               );
             })}
           </nav>
+          {DATA_UPDATED_AT && <span className="data-updated">Data Updated: {DATA_UPDATED_AT}</span>}
           <button className="btn-signout" onClick={clearPassword}>Sign out</button>
         </header>
 
