@@ -24,7 +24,7 @@
 // this department's active people, the average team size of the manager
 // they report to" (see the script for why it's computed this way).
 // ============================================================================
-export const DATA_UPDATED_AT = "2026-09-29";
+export const DATA_UPDATED_AT = "2026-10-05";
 export const RECORDS = [
   {
     "department": "100009 - Member Services",
@@ -747,21 +747,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100025 - Commercial Strategy & Operations",
-    "location_state": "NY",
-    "work_location": "OSNY - Onsite-New York",
-    "worker_category": "INTR - Intern",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 41601.6,
-    "hire_date": "2026-06-10",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
     "department": "100018 - Product",
     "location_state": "WI",
     "work_location": "R-WI - Remote-Wisconsin",
@@ -993,6 +978,21 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "active",
     "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
     "annual_salary": 47841.84,
     "hire_date": "2026-08-24",
     "rehire_date": null,
@@ -1096,7 +1096,7 @@ export const RECORDS = [
     "location_state": "CA",
     "work_location": "R-CA - Remote-California",
     "worker_category": "S - Salary | Exempt",
-    "position_status": "leave",
+    "position_status": "active",
     "is_contractor": false,
     "annual_salary": 260000.16,
     "hire_date": "2025-03-01",
@@ -1317,6 +1317,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100022 - Engineering",
+    "location_state": null,
+    "work_location": "O-IND - Offshore-India",
+    "worker_category": "CT3P - Contractor - 3rd Party",
+    "position_status": "active",
+    "is_contractor": true,
+    "annual_salary": null,
+    "hire_date": "2026-10-05",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
     "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
@@ -1325,21 +1340,6 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 45761.76,
     "hire_date": "2026-09-21",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100001 - Business Development",
-    "location_state": "WA",
-    "work_location": "R-WA - Remote-Washington",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 184999.92,
-    "hire_date": "2024-12-04",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -1356,6 +1356,21 @@ export const RECORDS = [
     "annual_salary": 45761.76,
     "hire_date": "2024-09-30",
     "rehire_date": "2026-08-24",
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100001 - Business Development",
+    "location_state": "WA",
+    "work_location": "R-WA - Remote-Washington",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 184999.92,
+    "hire_date": "2024-12-04",
+    "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
     "voluntary_flag": null,
@@ -1692,6 +1707,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
     "department": "100022 - Engineering",
     "location_state": null,
     "work_location": "R-CAN - Remote-Canada",
@@ -1812,7 +1842,7 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100018 - Product",
+    "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
     "worker_category": "N - Hourly | Non-Exempt",
@@ -2562,21 +2592,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100018 - Product",
-    "location_state": "IN",
-    "work_location": "R-IN - Remote-Indiana",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 233899.92,
-    "hire_date": "2024-01-29",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
     "department": "100017 - Information Security",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
@@ -2600,21 +2615,6 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 57120.24,
     "hire_date": "2023-09-25",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 45761.76,
-    "hire_date": "2025-08-18",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -2923,21 +2923,6 @@ export const RECORDS = [
   },
   {
     "department": "100013 - Human Resources",
-    "location_state": "OH",
-    "work_location": "R-OH - Remote-Ohio",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 198652.08,
-    "hire_date": "2021-05-31",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100013 - Human Resources",
     "location_state": "FL",
     "work_location": "R-FL - Remote - Florida",
     "worker_category": "S - Salary | Exempt",
@@ -3005,21 +2990,6 @@ export const RECORDS = [
     "is_contractor": true,
     "annual_salary": null,
     "hire_date": "2026-05-06",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 43681.68,
-    "hire_date": "2026-08-24",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -3393,7 +3363,7 @@ export const RECORDS = [
     "worker_category": "S - Salary | Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": 204750,
+    "annual_salary": 275000.16,
     "hire_date": "2025-02-26",
     "rehire_date": null,
     "termination_date": null,
@@ -3658,7 +3628,7 @@ export const RECORDS = [
   },
   {
     "department": "100009 - Member Services",
-    "location_state": "VA",
+    "location_state": "TX",
     "work_location": "R-VA - Remote-Virginia",
     "worker_category": "S - Salary | Exempt",
     "position_status": "active",
@@ -3815,6 +3785,21 @@ export const RECORDS = [
     "is_contractor": true,
     "annual_salary": null,
     "hire_date": "2026-09-15",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -4413,7 +4398,7 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": 45761.76,
+    "annual_salary": 55122.12,
     "hire_date": "2026-07-20",
     "rehire_date": null,
     "termination_date": null,
@@ -4685,21 +4670,6 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 47841.84,
     "hire_date": "2026-07-20",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100001 - Business Development",
-    "location_state": "NV",
-    "work_location": "R-NV - Remote-Nevada",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 265000.08,
-    "hire_date": "2024-12-04",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -5202,21 +5172,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
-    "location_state": "SC",
-    "work_location": "R-SC - Remote-South Carolina",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 108491.28,
-    "hire_date": "2026-03-06",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
     "department": "100022 - Engineering",
     "location_state": "KS",
     "work_location": "R-KS - Remote-Kansas",
@@ -5240,6 +5195,21 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 115000.08,
     "hire_date": "2021-08-30",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -5517,7 +5487,7 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100018 - Product",
+    "department": "100009 - Member Services",
     "location_state": "FL",
     "work_location": "R-FL - Remote - Florida",
     "worker_category": "S - Salary | Exempt",
@@ -5643,7 +5613,7 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": 49921.92,
+    "annual_salary": 57202.2,
     "hire_date": "2025-01-08",
     "rehire_date": null,
     "termination_date": null,
@@ -5699,7 +5669,7 @@ export const RECORDS = [
   {
     "department": "100022 - Engineering",
     "location_state": null,
-    "work_location": null,
+    "work_location": "R-CAN - Remote-Canada",
     "worker_category": "EOR - Employee through an EOR",
     "position_status": "active",
     "is_contractor": false,
@@ -6049,6 +6019,21 @@ export const RECORDS = [
     "position_status": "active",
     "is_contractor": false,
     "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
     "hire_date": "2026-09-02",
     "rehire_date": null,
     "termination_date": null,
@@ -6095,6 +6080,21 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 80000.16,
     "hire_date": "2026-06-03",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -7008,7 +7008,7 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": 52917.24,
+    "annual_salary": 57202.2,
     "hire_date": "2023-09-25",
     "rehire_date": null,
     "termination_date": null,
@@ -7107,21 +7107,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100022 - Engineering",
-    "location_state": null,
-    "work_location": null,
-    "worker_category": "EOR - Employee through an EOR",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": null,
-    "hire_date": "2025-12-03",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
     "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "R-TX - Remote-Texas",
@@ -7175,21 +7160,6 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": null,
     "hire_date": "2026-02-18",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100022 - Engineering",
-    "location_state": "CA",
-    "work_location": "R-CA - Remote-California",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 320000.16,
-    "hire_date": "2026-01-07",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -7430,6 +7400,21 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 47841.84,
     "hire_date": "2025-11-24",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100020 - Cancer Care Direct Delivery",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 115000.08,
+    "hire_date": "2026-09-30",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -8037,21 +8022,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 45761.76,
-    "hire_date": "2026-08-24",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
     "department": "100013 - Human Resources",
     "location_state": "IL",
     "work_location": "R-CHI - Remote - Chicago",
@@ -8157,14 +8127,14 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100022 - Engineering",
-    "location_state": "BC",
-    "work_location": "OSVAN - Onsite-Vancouver",
-    "worker_category": "EOR - Employee through an EOR",
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": null,
-    "hire_date": "2026-05-20",
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -8345,21 +8315,6 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 62400,
     "hire_date": "2023-11-13",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100018 - Product",
-    "location_state": "NC",
-    "work_location": "R-NC - Remote-North Carolina",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 177000.24,
-    "hire_date": "2024-08-28",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -8652,21 +8607,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
-    "location_state": "NC",
-    "work_location": "R-NC - Remote-North Carolina",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 334750.08,
-    "hire_date": "2021-08-11",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
     "department": "100012 - Strategy & Analytics",
     "location_state": "TX",
     "work_location": "R-TX - Remote-Texas",
@@ -8840,21 +8780,6 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 175000.08,
     "hire_date": "2024-10-23",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 49921.92,
-    "hire_date": "2026-01-05",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -9108,7 +9033,7 @@ export const RECORDS = [
     "worker_category": "S - Salary | Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": 64260,
+    "annual_salary": 55122.12,
     "hire_date": "2024-01-08",
     "rehire_date": null,
     "termination_date": null,
@@ -9267,7 +9192,7 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100018 - Product",
+    "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
     "worker_category": "N - Hourly | Non-Exempt",
@@ -10578,7 +10503,7 @@ export const RECORDS = [
     "worker_category": "S - Salary | Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": 63000,
+    "annual_salary": 55122.12,
     "hire_date": "2025-12-10",
     "rehire_date": null,
     "termination_date": null,
@@ -11118,21 +11043,6 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "active",
     "is_contractor": false,
-    "annual_salary": 49921.92,
-    "hire_date": "2026-09-02",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "active",
-    "is_contractor": false,
     "annual_salary": 43681.68,
     "hire_date": "2026-09-21",
     "rehire_date": null,
@@ -11555,21 +11465,6 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 44721.72,
     "hire_date": "2026-03-18",
-    "rehire_date": null,
-    "termination_date": null,
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "active",
-    "is_contractor": false,
-    "annual_salary": 45761.76,
-    "hire_date": "2026-09-21",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -12117,6 +12012,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
     "department": "100013 - Human Resources",
     "location_state": "TX",
     "work_location": "R-TX - Remote-Texas",
@@ -12194,7 +12104,7 @@ export const RECORDS = [
   {
     "department": "100022 - Engineering",
     "location_state": null,
-    "work_location": null,
+    "work_location": "R-CAN - Remote-Canada",
     "worker_category": "EOR - Employee through an EOR",
     "position_status": "active",
     "is_contractor": false,
@@ -12597,7 +12507,7 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100018 - Product",
+    "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
     "worker_category": "N - Hourly | Non-Exempt",
@@ -13047,7 +12957,7 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100018 - Product",
+    "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
     "worker_category": "N - Hourly | Non-Exempt",
@@ -13145,6 +13055,21 @@ export const RECORDS = [
     "is_contractor": false,
     "annual_salary": 45761.76,
     "hire_date": "2024-10-28",
+    "rehire_date": null,
+    "termination_date": null,
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "active",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-30",
     "rehire_date": null,
     "termination_date": null,
     "termination_reason": null,
@@ -13629,7 +13554,7 @@ export const RECORDS = [
     "termination_date": "2026-07-27",
     "termination_reason": "Q - End of Contract",
     "voluntary_flag": false,
-    "regrettable_flag": false
+    "regrettable_flag": null
   },
   {
     "department": "100009 - Member Services",
@@ -14637,6 +14562,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100025 - Commercial Strategy & Operations",
+    "location_state": "NY",
+    "work_location": "OSNY - Onsite-New York",
+    "worker_category": "INTR - Intern",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 41601.6,
+    "hire_date": "2026-06-10",
+    "rehire_date": null,
+    "termination_date": "2026-08-21",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
     "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
@@ -14848,21 +14788,6 @@ export const RECORDS = [
   },
   {
     "department": "100009 - Member Services",
-    "location_state": "NC",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "F - Full Time",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 42849.65,
-    "hire_date": "2019-01-07",
-    "rehire_date": null,
-    "termination_date": "2020-07-10",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
     "worker_category": "N - Hourly | Non-Exempt",
@@ -14874,6 +14799,21 @@ export const RECORDS = [
     "termination_date": "2023-08-24",
     "termination_reason": "J - Misconduct",
     "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "NC",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "F - Full Time",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 42849.65,
+    "hire_date": "2019-01-07",
+    "rehire_date": null,
+    "termination_date": "2020-07-10",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -14939,21 +14879,6 @@ export const RECORDS = [
   {
     "department": "100009 - Member Services",
     "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 43681.68,
-    "hire_date": "2025-08-18",
-    "rehire_date": null,
-    "termination_date": "2026-09-04",
-    "termination_reason": "D - Attendance",
-    "voluntary_flag": false,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
     "work_location": "0001 - Legal Address",
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
@@ -14964,6 +14889,21 @@ export const RECORDS = [
     "termination_date": "2023-02-14",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 43681.68,
+    "hire_date": "2025-08-18",
+    "rehire_date": null,
+    "termination_date": "2026-09-04",
+    "termination_reason": "D - Attendance",
+    "voluntary_flag": false,
     "regrettable_flag": null
   },
   {
@@ -15726,9 +15666,9 @@ export const RECORDS = [
     "annual_salary": 43681.68,
     "hire_date": "2024-08-26",
     "rehire_date": null,
-    "termination_date": "2024-09-13",
-    "termination_reason": "N - Personal",
-    "voluntary_flag": true,
+    "termination_date": "2024-08-28",
+    "termination_reason": "D - Attendance",
+    "voluntary_flag": false,
     "regrettable_flag": null
   },
   {
@@ -15756,23 +15696,8 @@ export const RECORDS = [
     "annual_salary": 43681.68,
     "hire_date": "2024-08-26",
     "rehire_date": null,
-    "termination_date": "2024-08-28",
-    "termination_reason": "D - Attendance",
-    "voluntary_flag": false,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 43681.68,
-    "hire_date": "2023-11-13",
-    "rehire_date": null,
-    "termination_date": "2025-05-30",
-    "termination_reason": "S - Voluntary Resignation",
+    "termination_date": "2024-09-13",
+    "termination_reason": "N - Personal",
     "voluntary_flag": true,
     "regrettable_flag": null
   },
@@ -15787,6 +15712,21 @@ export const RECORDS = [
     "hire_date": "2022-04-29",
     "rehire_date": null,
     "termination_date": "2022-07-29",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 43681.68,
+    "hire_date": "2023-11-13",
+    "rehire_date": null,
+    "termination_date": "2025-05-30",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -16449,6 +16389,21 @@ export const RECORDS = [
     "termination_date": "2026-02-20",
     "termination_reason": "K - Mutual Agreement",
     "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100022 - Engineering",
+    "location_state": null,
+    "work_location": "R-CAN - Remote-Canada",
+    "worker_category": "EOR - Employee through an EOR",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": null,
+    "hire_date": "2026-01-07",
+    "rehire_date": null,
+    "termination_date": "2026-10-01",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -17127,6 +17082,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100018 - Product",
+    "location_state": "IN",
+    "work_location": "R-IN - Remote-Indiana",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 233899.92,
+    "hire_date": "2024-01-29",
+    "rehire_date": null,
+    "termination_date": "2026-10-01",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
     "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
@@ -17184,6 +17154,21 @@ export const RECORDS = [
     "termination_date": "2026-05-21",
     "termination_reason": "K - Mutual Agreement",
     "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 45761.76,
+    "hire_date": "2025-08-18",
+    "rehire_date": null,
+    "termination_date": "2026-09-30",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -17592,6 +17577,36 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100013 - Human Resources",
+    "location_state": "OH",
+    "work_location": "R-OH - Remote-Ohio",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 198652.08,
+    "hire_date": "2021-05-31",
+    "rehire_date": null,
+    "termination_date": "2026-10-02",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 43681.68,
+    "hire_date": "2026-08-24",
+    "rehire_date": null,
+    "termination_date": "2026-10-02",
+    "termination_reason": "D - Attendance",
+    "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
     "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
@@ -17639,16 +17654,16 @@ export const RECORDS = [
   {
     "department": "100009 - Member Services",
     "location_state": "TX",
-    "work_location": "0001 - Legal Address",
+    "work_location": "OSDAL - Onsite-Dallas",
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 41601.6,
-    "hire_date": "2022-04-29",
+    "annual_salary": 43681.68,
+    "hire_date": "2025-11-24",
     "rehire_date": null,
-    "termination_date": "2022-07-25",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
+    "termination_date": "2026-04-17",
+    "termination_reason": "A - Abandoned Job",
+    "voluntary_flag": false,
     "regrettable_flag": null
   },
   {
@@ -17669,16 +17684,16 @@ export const RECORDS = [
   {
     "department": "100009 - Member Services",
     "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
+    "work_location": "0001 - Legal Address",
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 43681.68,
-    "hire_date": "2025-11-24",
+    "annual_salary": 41601.6,
+    "hire_date": "2022-04-29",
     "rehire_date": null,
-    "termination_date": "2026-04-17",
-    "termination_reason": "A - Abandoned Job",
-    "voluntary_flag": false,
+    "termination_date": "2022-07-25",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -19259,7 +19274,7 @@ export const RECORDS = [
   {
     "department": "100022 - Engineering",
     "location_state": null,
-    "work_location": null,
+    "work_location": "R-CAN - Remote-Canada",
     "worker_category": "EOR - Employee through an EOR",
     "position_status": "terminated",
     "is_contractor": false,
@@ -19269,7 +19284,7 @@ export const RECORDS = [
     "termination_date": "2026-05-31",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
-    "regrettable_flag": true
+    "regrettable_flag": null
   },
   {
     "department": "100009 - Member Services",
@@ -19827,6 +19842,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100003 - Network Development",
+    "location_state": "TX",
+    "work_location": null,
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 65000.16,
+    "hire_date": "2020-11-30",
+    "rehire_date": null,
+    "termination_date": "2023-01-11",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
     "department": "008000 - Accounting",
     "location_state": "TX",
     "work_location": null,
@@ -19842,16 +19872,16 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100003 - Network Development",
-    "location_state": "TX",
-    "work_location": null,
+    "department": "100001 - Business Development",
+    "location_state": "NV",
+    "work_location": "R-NV - Remote-Nevada",
     "worker_category": "S - Salary | Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 65000.16,
-    "hire_date": "2020-11-30",
+    "annual_salary": 265000.08,
+    "hire_date": "2024-12-04",
     "rehire_date": null,
-    "termination_date": "2023-01-11",
+    "termination_date": "2026-10-02",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -20414,7 +20444,7 @@ export const RECORDS = [
   {
     "department": "100022 - Engineering",
     "location_state": null,
-    "work_location": "0001 - Legal Address",
+    "work_location": "R-CAN - Remote-Canada",
     "worker_category": "EOR - Employee through an EOR",
     "position_status": "terminated",
     "is_contractor": false,
@@ -20468,6 +20498,21 @@ export const RECORDS = [
     "rehire_date": null,
     "termination_date": "2024-11-13",
     "termination_reason": "N - Personal",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "SC",
+    "work_location": "R-SC - Remote-South Carolina",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 108491.28,
+    "hire_date": "2026-03-06",
+    "rehire_date": null,
+    "termination_date": "2026-09-30",
+    "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
   },
@@ -20562,21 +20607,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100007 - Claims and Network Experience",
-    "location_state": "MO",
-    "work_location": "R-MO - Remote-Missouri",
-    "worker_category": "S - Salary | Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 300000,
-    "hire_date": "2026-03-06",
-    "rehire_date": null,
-    "termination_date": "2026-09-09",
-    "termination_reason": "H - Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": null
-  },
-  {
     "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": "OSDAL - Onsite-Dallas",
@@ -20588,6 +20618,21 @@ export const RECORDS = [
     "rehire_date": null,
     "termination_date": "2026-07-24",
     "termination_reason": "M - Performance",
+    "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100007 - Claims and Network Experience",
+    "location_state": "MO",
+    "work_location": "R-MO - Remote-Missouri",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 300000,
+    "hire_date": "2026-03-06",
+    "rehire_date": null,
+    "termination_date": "2026-09-09",
+    "termination_reason": "H - Layoff",
     "voluntary_flag": false,
     "regrettable_flag": null
   },
@@ -20667,21 +20712,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 46801.8,
-    "hire_date": "2025-11-24",
-    "rehire_date": null,
-    "termination_date": "2026-07-09",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
     "department": "008000 - Accounting",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
@@ -20692,6 +20722,21 @@ export const RECORDS = [
     "hire_date": "2017-07-10",
     "rehire_date": null,
     "termination_date": "2018-01-08",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 46801.8,
+    "hire_date": "2025-11-24",
+    "rehire_date": null,
+    "termination_date": "2026-07-09",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -21089,21 +21134,6 @@ export const RECORDS = [
   {
     "department": "100009 - Member Services",
     "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 45761.76,
-    "hire_date": "2025-07-21",
-    "rehire_date": null,
-    "termination_date": "2026-09-18",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
     "work_location": "0001 - Legal Address",
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
@@ -21112,6 +21142,21 @@ export const RECORDS = [
     "hire_date": "2021-11-12",
     "rehire_date": null,
     "termination_date": "2025-04-28",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 45761.76,
+    "hire_date": "2025-07-21",
+    "rehire_date": null,
+    "termination_date": "2026-09-18",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -21282,6 +21327,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100011 - Core Technology",
+    "location_state": "TX",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "F - Full Time",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 75000,
+    "hire_date": "2018-03-06",
+    "rehire_date": null,
+    "termination_date": "2021-10-08",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
     "department": "100010 - Client Success",
     "location_state": "FL",
     "work_location": "0001 - Legal Address",
@@ -21309,21 +21369,6 @@ export const RECORDS = [
     "termination_date": "2024-01-29",
     "termination_reason": "D - Attendance",
     "voluntary_flag": false,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100011 - Core Technology",
-    "location_state": "TX",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "F - Full Time",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 75000,
-    "hire_date": "2018-03-06",
-    "rehire_date": null,
-    "termination_date": "2021-10-08",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -21537,21 +21582,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100007 - Claims and Network Experience",
-    "location_state": "TX",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 44992.13,
-    "hire_date": "2023-10-11",
-    "rehire_date": null,
-    "termination_date": "2023-10-12",
-    "termination_reason": "A - Abandoned Job",
-    "voluntary_flag": false,
-    "regrettable_flag": null
-  },
-  {
     "department": "100011 - Core Technology",
     "location_state": "UT",
     "work_location": "0001 - Legal Address",
@@ -21567,16 +21597,16 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
+    "department": "100007 - Claims and Network Experience",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 43681.68,
-    "hire_date": "2024-09-30",
+    "annual_salary": 44992.13,
+    "hire_date": "2023-10-11",
     "rehire_date": null,
-    "termination_date": "2024-11-19",
+    "termination_date": "2023-10-12",
     "termination_reason": "A - Abandoned Job",
     "voluntary_flag": false,
     "regrettable_flag": null
@@ -21597,6 +21627,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 43681.68,
+    "hire_date": "2024-09-30",
+    "rehire_date": null,
+    "termination_date": "2024-11-19",
+    "termination_reason": "A - Abandoned Job",
+    "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
     "department": "003000 - Client Services",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
@@ -21612,21 +21657,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 47841.84,
-    "hire_date": "2022-06-03",
-    "rehire_date": null,
-    "termination_date": "2022-08-09",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
     "department": "100007 - Claims and Network Experience",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
@@ -21637,6 +21667,21 @@ export const RECORDS = [
     "hire_date": "2023-05-01",
     "rehire_date": null,
     "termination_date": "2023-07-31",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 47841.84,
+    "hire_date": "2022-06-03",
+    "rehire_date": null,
+    "termination_date": "2022-08-09",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -22624,21 +22669,6 @@ export const RECORDS = [
     "position_status": "terminated",
     "is_contractor": true,
     "annual_salary": null,
-    "hire_date": "2024-11-04",
-    "rehire_date": null,
-    "termination_date": "2025-12-31",
-    "termination_reason": "K - Mutual Agreement",
-    "voluntary_flag": false,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100023 - Data Management",
-    "location_state": null,
-    "work_location": null,
-    "worker_category": "CMSP - Contractor - MSP",
-    "position_status": "terminated",
-    "is_contractor": true,
-    "annual_salary": null,
     "hire_date": "2024-10-07",
     "rehire_date": null,
     "termination_date": "2025-06-30",
@@ -22655,6 +22685,21 @@ export const RECORDS = [
     "is_contractor": true,
     "annual_salary": null,
     "hire_date": "2024-11-12",
+    "rehire_date": null,
+    "termination_date": "2025-12-31",
+    "termination_reason": "K - Mutual Agreement",
+    "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100023 - Data Management",
+    "location_state": null,
+    "work_location": null,
+    "worker_category": "CMSP - Contractor - MSP",
+    "position_status": "terminated",
+    "is_contractor": true,
+    "annual_salary": null,
+    "hire_date": "2024-11-04",
     "rehire_date": null,
     "termination_date": "2025-12-31",
     "termination_reason": "K - Mutual Agreement",
@@ -22947,36 +22992,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "OSDAL - Onsite-Dallas",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 47841.84,
-    "hire_date": "2025-11-24",
-    "rehire_date": null,
-    "termination_date": "2026-08-04",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "F - Full Time",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 41601.6,
-    "hire_date": "2019-11-04",
-    "rehire_date": null,
-    "termination_date": "2020-06-30",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
     "department": "100002 - Accounting",
     "location_state": "CA",
     "work_location": "0001 - Legal Address",
@@ -22994,6 +23009,21 @@ export const RECORDS = [
   {
     "department": "100009 - Member Services",
     "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 47841.84,
+    "hire_date": "2025-11-24",
+    "rehire_date": null,
+    "termination_date": "2026-08-04",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
     "work_location": null,
     "worker_category": "F - Full Time",
     "position_status": "terminated",
@@ -23002,6 +23032,21 @@ export const RECORDS = [
     "hire_date": "2021-06-01",
     "rehire_date": null,
     "termination_date": "2022-01-31",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "F - Full Time",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 41601.6,
+    "hire_date": "2019-11-04",
+    "rehire_date": null,
+    "termination_date": "2020-06-30",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -23034,6 +23079,21 @@ export const RECORDS = [
     "termination_date": "2021-10-01",
     "termination_reason": "M - Performance",
     "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100022 - Engineering",
+    "location_state": null,
+    "work_location": "R-CAN - Remote-Canada",
+    "worker_category": "EOR - Employee through an EOR",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": null,
+    "hire_date": "2025-12-03",
+    "rehire_date": null,
+    "termination_date": "2026-10-01",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -23198,6 +23258,21 @@ export const RECORDS = [
     "rehire_date": null,
     "termination_date": "2024-09-05",
     "termination_reason": "D - Attendance",
+    "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100022 - Engineering",
+    "location_state": "CA",
+    "work_location": "R-CA - Remote-California",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 320000.16,
+    "hire_date": "2026-01-07",
+    "rehire_date": null,
+    "termination_date": "2026-10-02",
+    "termination_reason": "K - Mutual Agreement",
     "voluntary_flag": false,
     "regrettable_flag": null
   },
@@ -23667,21 +23742,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
-    "annual_salary": 49921.92,
-    "hire_date": "2024-10-28",
-    "rehire_date": null,
-    "termination_date": "2025-03-12",
-    "termination_reason": "N - Personal",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
     "department": "100007 - Claims and Network Experience",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
@@ -23703,10 +23763,10 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 47841.84,
-    "hire_date": "2024-02-26",
+    "annual_salary": 49921.92,
+    "hire_date": "2024-10-28",
     "rehire_date": null,
-    "termination_date": "2025-04-07",
+    "termination_date": "2025-03-12",
     "termination_reason": "N - Personal",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -23738,6 +23798,21 @@ export const RECORDS = [
     "rehire_date": null,
     "termination_date": "2023-10-05",
     "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 47841.84,
+    "hire_date": "2024-02-26",
+    "rehire_date": null,
+    "termination_date": "2025-04-07",
+    "termination_reason": "N - Personal",
     "voluntary_flag": true,
     "regrettable_flag": null
   },
@@ -23873,6 +23948,21 @@ export const RECORDS = [
     "rehire_date": null,
     "termination_date": "2026-02-16",
     "termination_reason": "M - Performance",
+    "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 45761.76,
+    "hire_date": "2026-08-24",
+    "rehire_date": null,
+    "termination_date": "2026-10-02",
+    "termination_reason": "D - Attendance",
     "voluntary_flag": false,
     "regrettable_flag": null
   },
@@ -24087,6 +24177,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100022 - Engineering",
+    "location_state": "BC",
+    "work_location": "OSVAN - Onsite-Vancouver",
+    "worker_category": "EOR - Employee through an EOR",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": null,
+    "hire_date": "2026-05-20",
+    "rehire_date": null,
+    "termination_date": "2026-10-01",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
     "department": "100009 - Member Services",
     "location_state": "TX",
     "work_location": null,
@@ -24204,6 +24309,21 @@ export const RECORDS = [
     "termination_date": "2026-08-02",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100018 - Product",
+    "location_state": "NC",
+    "work_location": "R-NC - Remote-North Carolina",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 177000.24,
+    "hire_date": "2024-08-28",
+    "rehire_date": null,
+    "termination_date": "2026-10-01",
+    "termination_reason": "P - Reorganization",
+    "voluntary_flag": false,
     "regrettable_flag": null
   },
   {
@@ -24489,7 +24609,7 @@ export const RECORDS = [
     "termination_date": "2026-03-25",
     "termination_reason": "K - Mutual Agreement",
     "voluntary_flag": false,
-    "regrettable_flag": false
+    "regrettable_flag": null
   },
   {
     "department": "100011 - Core Technology",
@@ -24777,6 +24897,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100009 - Member Services",
+    "location_state": "NC",
+    "work_location": "R-NC - Remote-North Carolina",
+    "worker_category": "S - Salary | Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 334750.08,
+    "hire_date": "2021-08-11",
+    "rehire_date": null,
+    "termination_date": "2026-09-30",
+    "termination_reason": "K - Mutual Agreement",
+    "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
     "department": "100011 - Core Technology",
     "location_state": "TX",
     "work_location": null,
@@ -24954,6 +25089,21 @@ export const RECORDS = [
     "termination_date": "2023-08-11",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-01-05",
+    "rehire_date": null,
+    "termination_date": "2026-10-02",
+    "termination_reason": "C - Advancement",
+    "voluntary_flag": null,
     "regrettable_flag": null
   },
   {
@@ -27009,7 +27159,7 @@ export const RECORDS = [
     "termination_date": "2026-07-01",
     "termination_reason": "Q - End of Contract",
     "voluntary_flag": false,
-    "regrettable_flag": false
+    "regrettable_flag": null
   },
   {
     "department": "100011 - Core Technology",
@@ -29067,6 +29217,21 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 49921.92,
+    "hire_date": "2026-09-02",
+    "rehire_date": null,
+    "termination_date": "2026-10-01",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
     "department": "100007 - Claims and Network Experience",
     "location_state": "TX",
     "work_location": "0001 - Legal Address",
@@ -29262,21 +29427,6 @@ export const RECORDS = [
     "regrettable_flag": null
   },
   {
-    "department": "100022 - Engineering",
-    "location_state": null,
-    "work_location": null,
-    "worker_category": "CT3P - Contractor - 3rd Party",
-    "position_status": "terminated",
-    "is_contractor": true,
-    "annual_salary": null,
-    "hire_date": "2024-04-26",
-    "rehire_date": null,
-    "termination_date": "2024-10-08",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
     "department": "100011 - Core Technology",
     "location_state": null,
     "work_location": null,
@@ -29289,6 +29439,21 @@ export const RECORDS = [
     "termination_date": "2025-08-01",
     "termination_reason": "K - Mutual Agreement",
     "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100022 - Engineering",
+    "location_state": null,
+    "work_location": null,
+    "worker_category": "CT3P - Contractor - 3rd Party",
+    "position_status": "terminated",
+    "is_contractor": true,
+    "annual_salary": null,
+    "hire_date": "2024-04-26",
+    "rehire_date": null,
+    "termination_date": "2024-10-08",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -29799,6 +29964,21 @@ export const RECORDS = [
     "termination_date": "2025-11-14",
     "termination_reason": "A - Abandoned Job",
     "voluntary_flag": false,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "OSDAL - Onsite-Dallas",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 45761.76,
+    "hire_date": "2026-09-21",
+    "rehire_date": null,
+    "termination_date": "2026-09-29",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -32118,21 +32298,6 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 48881.88,
-    "hire_date": "2025-07-21",
-    "rehire_date": null,
-    "termination_date": "2025-07-28",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
-    "department": "100009 - Member Services",
-    "location_state": "TX",
-    "work_location": "0001 - Legal Address",
-    "worker_category": "N - Hourly | Non-Exempt",
-    "position_status": "terminated",
-    "is_contractor": false,
     "annual_salary": 47841.84,
     "hire_date": "2022-06-03",
     "rehire_date": null,
@@ -32149,9 +32314,9 @@ export const RECORDS = [
     "position_status": "terminated",
     "is_contractor": false,
     "annual_salary": 48881.88,
-    "hire_date": "2025-01-08",
+    "hire_date": "2025-07-21",
     "rehire_date": null,
-    "termination_date": "2025-03-12",
+    "termination_date": "2025-07-28",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -32178,10 +32343,10 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 47841.84,
-    "hire_date": "2024-09-30",
+    "annual_salary": 48881.88,
+    "hire_date": "2025-01-08",
     "rehire_date": null,
-    "termination_date": "2026-01-02",
+    "termination_date": "2025-03-12",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
     "regrettable_flag": null
@@ -32193,12 +32358,12 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 41601.6,
-    "hire_date": "2021-10-01",
+    "annual_salary": 47841.84,
+    "hire_date": "2024-09-30",
     "rehire_date": null,
-    "termination_date": "2022-06-30",
-    "termination_reason": "M - Performance",
-    "voluntary_flag": false,
+    "termination_date": "2026-01-02",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -32223,12 +32388,12 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 49048.29,
-    "hire_date": "2023-04-24",
+    "annual_salary": 41601.6,
+    "hire_date": "2021-10-01",
     "rehire_date": null,
-    "termination_date": "2025-10-15",
-    "termination_reason": "S - Voluntary Resignation",
-    "voluntary_flag": true,
+    "termination_date": "2022-06-30",
+    "termination_reason": "M - Performance",
+    "voluntary_flag": false,
     "regrettable_flag": null
   },
   {
@@ -32253,12 +32418,12 @@ export const RECORDS = [
     "worker_category": "N - Hourly | Non-Exempt",
     "position_status": "terminated",
     "is_contractor": false,
-    "annual_salary": 47841.84,
-    "hire_date": "2023-09-25",
+    "annual_salary": 49048.29,
+    "hire_date": "2023-04-24",
     "rehire_date": null,
-    "termination_date": "2023-10-13",
-    "termination_reason": "M - Performance",
-    "voluntary_flag": false,
+    "termination_date": "2025-10-15",
+    "termination_reason": "S - Voluntary Resignation",
+    "voluntary_flag": true,
     "regrettable_flag": null
   },
   {
@@ -32274,6 +32439,21 @@ export const RECORDS = [
     "termination_date": "2024-12-26",
     "termination_reason": "N - Personal",
     "voluntary_flag": true,
+    "regrettable_flag": null
+  },
+  {
+    "department": "100009 - Member Services",
+    "location_state": "TX",
+    "work_location": "0001 - Legal Address",
+    "worker_category": "N - Hourly | Non-Exempt",
+    "position_status": "terminated",
+    "is_contractor": false,
+    "annual_salary": 47841.84,
+    "hire_date": "2023-09-25",
+    "rehire_date": null,
+    "termination_date": "2023-10-13",
+    "termination_reason": "M - Performance",
+    "voluntary_flag": false,
     "regrettable_flag": null
   },
   {
@@ -32362,9 +32542,9 @@ export const RECORDS = [
     "hire_date": "2025-08-27",
     "rehire_date": "2026-07-20",
     "termination_date": "2026-08-28",
-    "termination_reason": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
+    "termination_reason": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
   },
   {
     "department": "100009 - Member Services",
@@ -32967,1751 +33147,24 @@ export const RECORDS = [
     "regrettable_flag": null
   }
 ];
-export const VR_SEPARATIONS = [
-  {
-    "separation_date": "2026-12-05",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-02",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-02",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-02",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-05",
-    "separation_type": "Did Not Start",
-    "voluntary_flag": null,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-05",
-    "separation_type": "Did Not Start",
-    "voluntary_flag": null,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-05",
-    "separation_type": "Did Not Start",
-    "voluntary_flag": null,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-05",
-    "separation_type": "Did Not Start",
-    "voluntary_flag": null,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-05",
-    "separation_type": "Did Not Start",
-    "voluntary_flag": null,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-08",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-09",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-12",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-16",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-19",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-21",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-22",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-23",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-28",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-29",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-30",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-30",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-30",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-30",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-01-30",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-02",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-02",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-03",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-03",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-03",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-03",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-05",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-06",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-09",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-10",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-10",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-12",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-02-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-13",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-13",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-13",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-13",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-13",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-16",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-16",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-17",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-17",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-02-18",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-18",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-02-19",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-20",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-02-20",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-23",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-24",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-25",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-26",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-26",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-02-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-02-27",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-03",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-13",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-03-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-03-16",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-19",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-20",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-25",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-27",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-03-27",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-03-27",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-03-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-03-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-03-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-04-01",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-03",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-03",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-06",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-09",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-10",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-10",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-04-10",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-14",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-14",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-15",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-16",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-17",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-17",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-21",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-21",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-21",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-21",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-04-22",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-27",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-04-28",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-01",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-01",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-04",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-04",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-04",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-05",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-06",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-06",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-08",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-12",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-12",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-15",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-15",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-19",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-20",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-20",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-22",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-25",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-26",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-27",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-28",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-29",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-29",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-29",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-29",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-29",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-05-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-05-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-03",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-06-05",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-06-05",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-05",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-08",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-12",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-06-12",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-12",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-12",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-15",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-15",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-22",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-23",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-23",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-24",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-24",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-26",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-06-29",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-06-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-06-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-01",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-01",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-02",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-02",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-03",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-08",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-09",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-09",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-10",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-10",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-10",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-15",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-15",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-16",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-20",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-20",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-21",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-21",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-23",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-24",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-27",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-28",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-29",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-29",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-30",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-07-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-07-31",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-02",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-02",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-03",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-03",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-08-03",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-05",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-06",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-07",
-    "separation_type": "Contract Ended",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-07",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-13",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-08-14",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-14",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-18",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-19",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-20",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-20",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-21",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-28",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-31",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-31",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-08-31",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-01",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-02",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-04",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-04",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-09",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-09",
-    "separation_type": "Layoff",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-09",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-09-11",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-11",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-25",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-16",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-18",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-22",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-22",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-18",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-18",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-09-14",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-16",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-18",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-17",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-09-01",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-08-12",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-08-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-08-07",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-08-28",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-09-08",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-09-03",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-09-08",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-09-10",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-09-08",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-08-21",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-08-24",
-    "separation_type": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
-  },
-  {
-    "separation_date": "2026-08-27",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-09-30",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": true
-  },
-  {
-    "separation_date": "2026-10-02",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-24",
-    "separation_type": "Voluntary",
-    "voluntary_flag": true,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-25",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  },
-  {
-    "separation_date": "2026-09-28",
-    "separation_type": "Involuntary",
-    "voluntary_flag": false,
-    "regrettable_flag": false
-  }
-];
+export const VR_SEPARATIONS = [];
 export const SPAN_OF_CONTROL = {
-  "overallAvg": 6,
-  "overallAvgWithContractors": 6.9,
-  "managerCount": 129,
-  "reportCount": 779,
-  "reportCountWithContractors": 885,
+  "overallAvg": 6.3,
+  "overallAvgWithContractors": 7.1,
+  "managerCount": 124,
+  "reportCount": 777,
+  "reportCountWithContractors": 881,
   "target": 7,
   "activationResolved": true,
   "byDept": [
     {
       "department": "Conversion",
-      "avgDirectReports": 10.3,
-      "managerCount": 28,
-      "reportCount": 288,
+      "avgDirectReports": 9.8,
+      "managerCount": 29,
+      "reportCount": 283,
       "distribution": [
         {
-          "directReports": 75,
-          "managerCount": 1
-        },
-        {
-          "directReports": 18,
+          "directReports": 68,
           "managerCount": 1
         },
         {
@@ -34724,7 +33177,7 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 12,
-          "managerCount": 3
+          "managerCount": 4
         },
         {
           "directReports": 11,
@@ -34732,7 +33185,15 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 10,
-          "managerCount": 4
+          "managerCount": 2
+        },
+        {
+          "directReports": 9,
+          "managerCount": 2
+        },
+        {
+          "directReports": 8,
+          "managerCount": 1
         },
         {
           "directReports": 7,
@@ -34744,37 +33205,41 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 5,
-          "managerCount": 2
+          "managerCount": 3
         },
         {
           "directReports": 4,
-          "managerCount": 1
-        },
-        {
-          "directReports": 3,
-          "managerCount": 3
-        },
-        {
-          "directReports": 2,
           "managerCount": 2
         },
         {
+          "directReports": 3,
+          "managerCount": 1
+        },
+        {
+          "directReports": 2,
+          "managerCount": 1
+        },
+        {
           "directReports": 1,
-          "managerCount": 3
+          "managerCount": 4
         }
       ]
     },
     {
       "department": "Activation",
-      "avgDirectReports": 7.5,
+      "avgDirectReports": 8,
       "managerCount": 13,
-      "reportCount": 97,
-      "avgDirectReportsAdjusted": 7.5,
+      "reportCount": 104,
+      "avgDirectReportsAdjusted": 8.1,
       "contractorsAdded": 1,
       "distribution": [
         {
-          "directReports": 27,
+          "directReports": 20,
           "managerCount": 1
+        },
+        {
+          "directReports": 17,
+          "managerCount": 2
         },
         {
           "directReports": 13,
@@ -34782,7 +33247,7 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 12,
-          "managerCount": 2
+          "managerCount": 1
         },
         {
           "directReports": 7,
@@ -34790,7 +33255,7 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 5,
-          "managerCount": 3
+          "managerCount": 1
         },
         {
           "directReports": 3,
@@ -34798,7 +33263,7 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 2,
-          "managerCount": 1
+          "managerCount": 2
         },
         {
           "directReports": 1,
@@ -34808,9 +33273,9 @@ export const SPAN_OF_CONTROL = {
     },
     {
       "department": "Provider",
-      "avgDirectReports": 5.2,
+      "avgDirectReports": 5.3,
       "managerCount": 17,
-      "reportCount": 89,
+      "reportCount": 90,
       "avgDirectReportsAdjusted": 5.5,
       "contractorsAdded": 4,
       "distribution": [
@@ -34823,20 +33288,12 @@ export const SPAN_OF_CONTROL = {
           "managerCount": 1
         },
         {
-          "directReports": 10,
-          "managerCount": 1
-        },
-        {
           "directReports": 8,
-          "managerCount": 2
-        },
-        {
-          "directReports": 7,
-          "managerCount": 1
+          "managerCount": 4
         },
         {
           "directReports": 6,
-          "managerCount": 1
+          "managerCount": 2
         },
         {
           "directReports": 5,
@@ -34844,7 +33301,7 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 4,
-          "managerCount": 2
+          "managerCount": 1
         },
         {
           "directReports": 3,
@@ -34862,9 +33319,9 @@ export const SPAN_OF_CONTROL = {
     },
     {
       "department": "Client Success",
-      "avgDirectReports": 5.7,
+      "avgDirectReports": 5.6,
       "managerCount": 12,
-      "reportCount": 68,
+      "reportCount": 67,
       "distribution": [
         {
           "directReports": 9,
@@ -34872,7 +33329,7 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 7,
-          "managerCount": 3
+          "managerCount": 2
         },
         {
           "directReports": 6,
@@ -34880,32 +33337,40 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 5,
-          "managerCount": 1
+          "managerCount": 2
         },
         {
           "directReports": 4,
           "managerCount": 1
         },
         {
+          "directReports": 2,
+          "managerCount": 1
+        },
+        {
           "directReports": 1,
-          "managerCount": 2
+          "managerCount": 1
         }
       ]
     },
     {
       "department": "Technology",
-      "avgDirectReports": 2.3,
-      "managerCount": 28,
-      "reportCount": 63,
-      "avgDirectReportsAdjusted": 5.3,
-      "contractorsAdded": 84,
+      "avgDirectReports": 2.4,
+      "managerCount": 26,
+      "reportCount": 62,
+      "avgDirectReportsAdjusted": 5.6,
+      "contractorsAdded": 83,
       "distribution": [
         {
-          "directReports": 18,
+          "directReports": 19,
           "managerCount": 1
         },
         {
           "directReports": 13,
+          "managerCount": 1
+        },
+        {
+          "directReports": 11,
           "managerCount": 1
         },
         {
@@ -34914,40 +33379,8 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 8,
-          "managerCount": 6
+          "managerCount": 4
         },
-        {
-          "directReports": 6,
-          "managerCount": 2
-        },
-        {
-          "directReports": 5,
-          "managerCount": 3
-        },
-        {
-          "directReports": 4,
-          "managerCount": 2
-        },
-        {
-          "directReports": 3,
-          "managerCount": 5
-        },
-        {
-          "directReports": 2,
-          "managerCount": 2
-        },
-        {
-          "directReports": 1,
-          "managerCount": 5
-        }
-      ]
-    },
-    {
-      "department": "Business Development",
-      "avgDirectReports": 4.3,
-      "managerCount": 8,
-      "reportCount": 34,
-      "distribution": [
         {
           "directReports": 7,
           "managerCount": 1
@@ -34958,6 +33391,42 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 5,
+          "managerCount": 2
+        },
+        {
+          "directReports": 4,
+          "managerCount": 3
+        },
+        {
+          "directReports": 3,
+          "managerCount": 4
+        },
+        {
+          "directReports": 2,
+          "managerCount": 2
+        },
+        {
+          "directReports": 1,
+          "managerCount": 4
+        }
+      ]
+    },
+    {
+      "department": "Business Development",
+      "avgDirectReports": 4.7,
+      "managerCount": 7,
+      "reportCount": 33,
+      "distribution": [
+        {
+          "directReports": 10,
+          "managerCount": 1
+        },
+        {
+          "directReports": 7,
+          "managerCount": 1
+        },
+        {
+          "directReports": 6,
           "managerCount": 1
         },
         {
@@ -35013,7 +33482,7 @@ export const SPAN_OF_CONTROL = {
       "contractorsAdded": 7,
       "distribution": [
         {
-          "directReports": 8,
+          "directReports": 7,
           "managerCount": 1
         },
         {
@@ -35025,8 +33494,12 @@ export const SPAN_OF_CONTROL = {
           "managerCount": 2
         },
         {
+          "directReports": 3,
+          "managerCount": 1
+        },
+        {
           "directReports": 2,
-          "managerCount": 5
+          "managerCount": 4
         },
         {
           "directReports": 1,
@@ -35084,40 +33557,30 @@ export const SPAN_OF_CONTROL = {
     },
     {
       "department": "Human Resources",
-      "avgDirectReports": 4,
+      "avgDirectReports": 3.8,
       "managerCount": 4,
-      "reportCount": 16,
-      "avgDirectReportsAdjusted": 4.3,
+      "reportCount": 15,
+      "avgDirectReportsAdjusted": 4,
       "contractorsAdded": 1,
       "distribution": [
         {
-          "directReports": 8,
-          "managerCount": 1
-        },
-        {
-          "directReports": 6,
-          "managerCount": 1
-        },
-        {
-          "directReports": 2,
-          "managerCount": 1
+          "directReports": 7,
+          "managerCount": 2
         },
         {
           "directReports": 1,
-          "managerCount": 1
+          "managerCount": 2
         }
       ]
     },
     {
       "department": "Commercial Strategy & Operations",
-      "avgDirectReports": 2,
-      "managerCount": 5,
+      "avgDirectReports": 3.3,
+      "managerCount": 3,
       "reportCount": 10,
-      "avgDirectReportsAdjusted": 2.2,
-      "contractorsAdded": 1,
       "distribution": [
         {
-          "directReports": 5,
+          "directReports": 6,
           "managerCount": 1
         },
         {
@@ -35126,7 +33589,7 @@ export const SPAN_OF_CONTROL = {
         },
         {
           "directReports": 1,
-          "managerCount": 3
+          "managerCount": 1
         }
       ]
     },
@@ -35137,27 +33600,23 @@ export const SPAN_OF_CONTROL = {
       "reportCount": 6,
       "distribution": [
         {
-          "directReports": 3,
-          "managerCount": 1
-        },
-        {
-          "directReports": 2,
+          "directReports": 4,
           "managerCount": 1
         },
         {
           "directReports": 1,
-          "managerCount": 1
+          "managerCount": 2
         }
       ]
     },
     {
       "department": "Executive",
-      "avgDirectReports": 2,
+      "avgDirectReports": 1,
       "managerCount": 1,
-      "reportCount": 2,
+      "reportCount": 1,
       "distribution": [
         {
-          "directReports": 2,
+          "directReports": 1,
           "managerCount": 1
         }
       ]
@@ -35166,21 +33625,21 @@ export const SPAN_OF_CONTROL = {
   "byExemptStatus": [
     {
       "exemptStatus": "Exempt",
-      "avgDirectReports": 4.4,
-      "managerCount": 103,
-      "reportCount": 449
+      "avgDirectReports": 4.5,
+      "managerCount": 98,
+      "reportCount": 444
     },
     {
       "exemptStatus": "Non-Exempt",
-      "avgDirectReports": 11.8,
-      "managerCount": 28,
-      "reportCount": 330
+      "avgDirectReports": 10.7,
+      "managerCount": 31,
+      "reportCount": 333
     },
     {
       "exemptStatus": "Other",
-      "avgDirectReports": 3.4,
-      "managerCount": 31,
-      "reportCount": 106
+      "avgDirectReports": 3.6,
+      "managerCount": 29,
+      "reportCount": 104
     }
   ]
 };
