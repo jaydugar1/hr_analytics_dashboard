@@ -73,9 +73,10 @@ export default function VolReg({ terms, vrSeparations = [] }) {
         <div className="card card--pad" style={{ borderTop: '3px solid #c9a227' }}>
           <div className="card-title">Separately logged: the V&amp;R workbook</div>
           <p style={{ fontSize: 12.5, color: '#655e52', margin: '4px 0 14px', maxWidth: 720 }}>
-            This workbook has no employee id or name, so its rows can't be matched to the {terms.length.toLocaleString()}{' '}
-            terminations above person-by-person — it's shown here as its own separate, usually smaller and
-            differently-dated count, never combined with the figures above.
+            This workbook's rows couldn't be reliably matched to the {terms.length.toLocaleString()}{' '}
+            terminations above person-by-person (no shared employee id, and name-only matching is unreliable) — it's
+            shown here as its own separate, usually smaller and differently-dated count, never combined with the
+            figures above.
           </p>
           <div className="kpi-grid-5">
             <Kpi value={vr.total} label="Logged Separations" />

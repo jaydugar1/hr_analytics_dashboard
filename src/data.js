@@ -13554,7 +13554,7 @@ export const RECORDS = [
     "termination_date": "2026-07-27",
     "termination_reason": "Q - End of Contract",
     "voluntary_flag": false,
-    "regrettable_flag": null
+    "regrettable_flag": false
   },
   {
     "department": "100009 - Member Services",
@@ -19284,7 +19284,7 @@ export const RECORDS = [
     "termination_date": "2026-05-31",
     "termination_reason": "S - Voluntary Resignation",
     "voluntary_flag": true,
-    "regrettable_flag": null
+    "regrettable_flag": true
   },
   {
     "department": "100009 - Member Services",
@@ -24609,7 +24609,7 @@ export const RECORDS = [
     "termination_date": "2026-03-25",
     "termination_reason": "K - Mutual Agreement",
     "voluntary_flag": false,
-    "regrettable_flag": null
+    "regrettable_flag": false
   },
   {
     "department": "100011 - Core Technology",
@@ -27159,7 +27159,7 @@ export const RECORDS = [
     "termination_date": "2026-07-01",
     "termination_reason": "Q - End of Contract",
     "voluntary_flag": false,
-    "regrettable_flag": null
+    "regrettable_flag": false
   },
   {
     "department": "100011 - Core Technology",
@@ -32542,9 +32542,9 @@ export const RECORDS = [
     "hire_date": "2025-08-27",
     "rehire_date": "2026-07-20",
     "termination_date": "2026-08-28",
-    "termination_reason": null,
-    "voluntary_flag": null,
-    "regrettable_flag": null
+    "termination_reason": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
   },
   {
     "department": "100009 - Member Services",
@@ -33147,7 +33147,1778 @@ export const RECORDS = [
     "regrettable_flag": null
   }
 ];
-export const VR_SEPARATIONS = [];
+export const VR_SEPARATIONS = [
+  {
+    "separation_date": "2026-10-02",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-10-02",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-10-02",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-10-02",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-10-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-30",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-09-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-09-28",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-25",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-25",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-09-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-22",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-22",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-18",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-18",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-18",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-18",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-09-17",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-09-16",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-16",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-14",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-11",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-11",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-10",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-09-09",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-09",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-09",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-09-08",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-09-08",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-09-08",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-09-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-04",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-03",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-02",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-01",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-09-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-08-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-31",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-31",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-28",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-08-28",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-24",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-08-21",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-21",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-08-21",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-20",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-20",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-19",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-18",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-14",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-14",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-08-12",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-08-07",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-07",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-07",
+    "separation_type": null,
+    "voluntary_flag": null,
+    "regrettable_flag": null
+  },
+  {
+    "separation_date": "2026-08-06",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-05",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-03",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-08-03",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-03",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-02",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-08-02",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-31",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-30",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-29",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-29",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-28",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-27",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-24",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-23",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-21",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-21",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-20",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-20",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-16",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-15",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-15",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-10",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-10",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-10",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-09",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-09",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-08",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-07-03",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-02",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-02",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-01",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-07-01",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-06-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-06-29",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-26",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-06-24",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-24",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-23",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-22",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-15",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-15",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-12",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-12",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-12",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-06-12",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-08",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-05",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-06-05",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-05",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-03",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-06-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-06-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-29",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-29",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-29",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-29",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-29",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-28",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-27",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-26",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-25",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-22",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-20",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-20",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-19",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-15",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-15",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-12",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-12",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-08",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-06",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-06",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-05",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-04",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-04",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-04",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-05-01",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-01",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-05-01",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-28",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-27",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-24",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-22",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-21",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-21",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-21",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-21",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-04-17",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-17",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-16",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-15",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-14",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-14",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-10",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-10",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-10",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-04-09",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-06",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-03",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-03",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-04-01",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-31",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-03-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-30",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-03-27",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-03-27",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-03-27",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-03-25",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-20",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-19",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-16",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-13",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-03-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-03-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-03-03",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-27",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-27",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-26",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-26",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-02-25",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-24",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-23",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-20",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-02-20",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-19",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-18",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-18",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-02-17",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-02-17",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-16",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-16",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-13",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-13",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-13",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-13",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-13",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-13",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-12",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": true
+  },
+  {
+    "separation_date": "2026-02-10",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-10",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-09",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-06",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-05",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-04",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-03",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-03",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-03",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-03",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-02",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-02-02",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-30",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-30",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-30",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-30",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-30",
+    "separation_type": "Layoff",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-29",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-28",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-23",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-22",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-21",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-19",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-16",
+    "separation_type": "Contract Ended",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-12",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-09",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-08",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-05",
+    "separation_type": "Did Not Start",
+    "voluntary_flag": null,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-05",
+    "separation_type": "Did Not Start",
+    "voluntary_flag": null,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-05",
+    "separation_type": "Did Not Start",
+    "voluntary_flag": null,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-05",
+    "separation_type": "Did Not Start",
+    "voluntary_flag": null,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-05",
+    "separation_type": "Did Not Start",
+    "voluntary_flag": null,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-02",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-02",
+    "separation_type": "Involuntary",
+    "voluntary_flag": false,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-01-02",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  },
+  {
+    "separation_date": "2026-12-05",
+    "separation_type": "Voluntary",
+    "voluntary_flag": true,
+    "regrettable_flag": false
+  }
+];
 export const SPAN_OF_CONTROL = {
   "overallAvg": 6.3,
   "overallAvgWithContractors": 7.1,
